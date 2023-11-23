@@ -3,7 +3,7 @@ public class KarmasikSayi
     private int x;
     private int y;
 
-    // Default constructor
+    // Defaultconstructor
     public KarmasikSayi()
     {
         x = 0; y = 0;
