@@ -1,0 +1,31 @@
+class X
+{
+    private int sayi;
+
+    public X()
+    {
+        sayi = 10;
+    }
+
+    public X(int a)
+    {
+        sayi = 10 * a;
+    }
+
+    public int GetSayi()
+    {
+        return sayi;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        X X_nesne01 = new X();
+        X X_nesne02 = new X(4);
+
+        Console.WriteLine("X_nesne01 sayi: " + X_nesne01.GetSayi());
+        Console.WriteLine("X_nesne02 sayi: " + X_nesne02.GetSayi());
+    }
+}
