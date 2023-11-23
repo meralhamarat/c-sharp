@@ -12,7 +12,7 @@ class X
         sayi = 10 * a;
     }
 
-    public int GetSayi()
+    public int Get_Sayi()
     {
         return sayi;
     }
@@ -25,7 +25,7 @@ class Program
         X X_nesne01 = new X();
         X X_nesne02 = new X(4);
 
-        Console.WriteLine("X_nesne01 sayi: " + X_nesne01.GetSayi());
-        Console.WriteLine("X_nesne02 sayi: " + X_nesne02.GetSayi());
+        Console.WriteLine("X_nesne01 sayi: " + X_nesne01.Get_Sayi());
+        Console.WriteLine("X_nesne02 sayi: " + X_nesne02.Get_Sayi());
     }
 }
