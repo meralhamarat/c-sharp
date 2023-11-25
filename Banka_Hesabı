@@ -1,9 +1,9 @@
-Using System
+using System;
 
 class BankaHesabi
 {
     private string hesapSahibi;
-    private string hesapNumarasi; // herhangi bir işlem olmayacağı için string yazabilirim
+    private string hesapNumarasi;
     private decimal bakiye;
 
     public string HesapSahibi
@@ -11,13 +11,13 @@ class BankaHesabi
         get { return hesapSahibi; }
         set { hesapSahibi = value; }
     }
-    
+
     public string HesapNumarasi
     {
         get { return hesapNumarasi; }
         set { hesapNumarasi = value; }
-    } 
-    
+    }
+
     public decimal Bakiye
     {
         get { return bakiye; }
@@ -26,7 +26,7 @@ class BankaHesabi
             if (value >= 0) // Bakiye negatif olamaz
                 bakiye = value;
             else
-            Console.Writeline("Hatali bakiye değeri girdiniz.")
+                Console.WriteLine("Hatalı bakiye degeri girdiniz.");
         }
     }
 
@@ -40,25 +40,25 @@ class BankaHesabi
     public void ParaYatir(decimal miktar)
     {
         Bakiye += miktar;
-        Console.Writeline($"{hesapSahibi} adli hesaba {miktar} yatirildi. Yeni bakiye: {Bakiye} TL");
+        Console.WriteLine($"{hesapSahibi} adli hesaba {miktar} TL yatirildi. Yeni bakiye: {Bakiye} TL");
     }
-    
+
     public void ParaCek(decimal miktar)
     {
         if (Bakiye >= miktar)
         {
             Bakiye -= miktar;
-            Console.Writeline($"{hesapSahibi}, adli hesaptan {miktar} TL cekildi. Yeni bakiye: {Bakiye}");
+            Console.WriteLine($"{hesapSahibi} adli hesaptan {miktar} TL cekildi. Yeni bakiye: {Bakiye} TL");
         }
         else
         {
-            Console.Writeline("Yetersiz bakiye. Islem gerceklestirilemedi.");
+            Console.WriteLine("Yetersiz bakiye. Islem gerceklestirilemedi.");
         }
     }
 
-    public void HesapBilgileriniYazdir()
+    public void HesapBilgileriYazdir()
     {
-        Console.Writeline($" Hesap Sahibi: {HesapSahibi}\n Hesap Numarasi: {HesapNumarasi}\n Bakiye: {Bakiye} TL"); 
+        Console.WriteLine($" Hesap Sahibi: {HesapSahibi}\n Hesap Numarasi: {HesapNumarasi}\n Bakiye: {Bakiye} TL");
     }
 }
 
@@ -66,52 +66,52 @@ class Program
 {
     static void Main()
     {
-        Console.Writeline("Banka Hesabi Olusturma");
+        Console.WriteLine("Banka Hesabi Olusturma");
 
-        Console.Writeline("Hesap Sahibi: ");
+        Console.Write("Hesap Sahibi: ");
         string hesapSahibi = Console.ReadLine();
 
-        Console.Writeline("Hesap Numarasi: ");
+        Console.Write("Hesap Numarasi: ");
         string hesapNumarasi = Console.ReadLine();
 
         Console.Write("Bakiye: ");
         decimal bakiye;
         while (!decimal.TryParse(Console.ReadLine(), out bakiye) || bakiye < 0)
         {
-            Console.Writeline("Gecersiz bakiye degeri. Lutfen pozitif bir sayi giriniz.");
+            Console.WriteLine("Gecersiz bakiye degeri. Lutfen pozitif bir sayi girin.");
             Console.Write("Bakiye: ");
         }
 
         BankaHesabi hesap = new BankaHesabi(hesapSahibi, hesapNumarasi, bakiye);
 
-        Console.Writeline("\nBanka Hesabi Olusturuldu:\n");
-        hesap.HesapBilgileriniYazdir();
+        Console.WriteLine("\nBanka Hesabi Olusturuldu:\n");
+        hesap.HesapBilgileriYazdir();
 
-        Console.Writeline("\Para Yatirma");
-        Console.Write("Yatirilacak miktar: ");
+        Console.WriteLine("\nPara Yatirma");
+        Console.Write("Yatirilacak Miktar: ");
         decimal yatirilanMiktar;
         while (!decimal.TryParse(Console.ReadLine(), out yatirilanMiktar) || yatirilanMiktar < 0)
         {
-            Console.Writeline("Gecersiz miktar. Lutfen pozitif bir sayi giriniz.");
-            Console.Write("Yatirilacak miktar: ");
+            Console.WriteLine("Gecersiz miktar. Lutfen pozitif bir sayi girin.");
+            Console.Write("Yatirilacak Miktar: ");
         }
 
         hesap.ParaYatir(yatirilanMiktar);
-        hesap.HesapBilgileriniYazdir();
+        hesap.HesapBilgileriYazdir();
 
-        Console.Writeline("\nPara Cekme");
+        Console.WriteLine("\nPara Cekme");
         Console.Write("Cekilecek Miktar: ");
         decimal cekilenMiktar;
         while (!decimal.TryParse(Console.ReadLine(), out cekilenMiktar) || cekilenMiktar < 0)
         {
-            Console.Writeline("Gecersiz miktar. Lutfen pozitif bir sayi girin.");
+            Console.WriteLine("Gecersiz miktar. Lutfen pozitif bir sayi girin.");
             Console.Write("Cekilecek Miktar: ");
         }
 
         hesap.ParaCek(cekilenMiktar);
-        hesap.HesapBilgileriniYazdir();
+        hesap.HesapBilgileriYazdir();
 
-        Console.Writeline("\nProgrami sonlandirmak icin '9' tusuna basin...");
-        while (Console.ReadKey().Key != Console.D9) {}
+        Console.WriteLine("\nProgramı sonlandırmak için '9' tuşuna basın...");
+        while (Console.ReadKey().Key != ConsoleKey.D9) { } // Concole.Key tuş bilgilerini içerip davranısları kontol eden anahtar
     }
 }
