@@ -120,7 +120,7 @@ class Program
         hesap.ParaCek(cekilenMiktar);
         hesap.HesapBilgileriYazdir();
 
-        Console.WriteLine("\nProgramı sonlandırmak için '9' tuşuna basın...");
+        Console.WriteLine("\nProgrami sonlandirmak icin '9' tusuna basin...");
         while (Console.ReadKey().Key != ConsoleKey.D9) { } // Concole.Key tuş bilgilerini içerip davranısları kontol eden anahtar
     }
 }
