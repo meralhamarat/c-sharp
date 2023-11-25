@@ -88,7 +88,7 @@ class Program
         while (!decimal.TryParse(Console.ReadLine(), out bakiye) || bakiye < 0)
         {
             Console.WriteLine("Gecersiz bakiye degeri. Lutfen pozitif bir sayi girin.");
-            Console.Write("Bakiye: ");
+            Console.Write("Bakiye:\n ");
         }
 
         BankaHesabi hesap = new BankaHesabi(hesapSahibi, hesapNumarasi, bakiye);
