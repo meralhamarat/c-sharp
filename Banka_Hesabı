@@ -109,5 +109,10 @@ class Program
             Console.Write("Çekilecek Miktar: ");
         }
 
+        hesap.ParaCek(cekilenMiktar);
+        hesap.HesapBilgileriYazdir();
+
+        Console.ReadLine();
+
     }
 }
