@@ -9,7 +9,7 @@ class Program
         int bilgisayarKazanmaSayisi = 0;
         int oyuncuKazanmaSayisi = 0;
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             string kullaniciSecimi = KullaniciSecimAşaması();
             string bilgisayarSecimi = BilgisayarSecimAşaması();
