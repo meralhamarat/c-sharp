@@ -4,49 +4,56 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Personel Maaş ve Mesai Hesaplama");
+        Console.WriteLine("Employee Salary and Overtime Calculation");
 
-        // Temel bilgileri al
-        Console.Write("Adınızı girin: ");
-        string ad = Console.ReadLine();
+        // Get basic information
+        Console.Write("Enter your name: ");
+        string name = Console.ReadLine();
 
-        Console.Write("Soyadınızı girin: ");
-        string soyad = Console.ReadLine();
+        Console.Write("Enter your surname: ");
+        string surname = Console.ReadLine();
 
-        Console.Write("Aylık maaşınızı girin: ");
-        double aylikMaas = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Enter your monthly salary: ");
+        double monthlySalary = Convert.ToDouble(Console.ReadLine());
 
-        // Mesai bilgilerini al
-        Console.Write("Haftalık çalışma saatini girin: ");
-        double haftalikCalismaSaat = Convert.ToDouble(Console.ReadLine());
+        // Get overtime information
+        Console.Write("Enter your weekly overtime hours: ");
+        double weeklyWorkHours = Convert.ToDouble(Console.ReadLine());
 
-        Console.Write("Haftalık ekstra mesai saatini girin: ");
-        double haftalikMesaiSaat = Convert.ToDouble(Console.ReadLine());
+        // Calculate hourly wage
+        double hourlyWage = CalculateHourlyWage(monthlySalary, weeklyWorkHours);
 
-        // Saatlik ücreti ve ekstra mesai ücretini hesapla
-        HesaplaUcretVeMesai(aylikMaas, haftalikCalismaSaat, haftalikMesaiSaat, out double saatlikUcret, out double ekstraMesaiUcreti);
+        // Calculate overtime pay
+        double overtimePay = CalculateOvertimePay(weeklyWorkHours, hourlyWage);
 
-        // Toplam maaşı hesapla
-        double toplamMaas = aylikMaas + ekstraMesaiUcreti;
+        // Calculate total salary
+        double totalSalary = monthlySalary + overtimePay;
 
-        // Sonuçları göster
-        Console.WriteLine("\nHesaplanan Bilgiler:");
-        Console.WriteLine($"Ad Soyad: {ad} {soyad}");
-        Console.WriteLine($"Aylık Maaş: {aylikMaas:C}");
-        Console.WriteLine($"Saatlik Ücret: {saatlikUcret:C}");
-        Console.WriteLine($"Ekstra Mesai Ücreti: {ekstraMesaiUcreti:C}");
-        Console.WriteLine($"Toplam Maaş: {toplamMaas:C}");
+        // Display the results
+        Console.WriteLine("\nCalculated Information:");
+        Console.WriteLine($"Name Surname: {name} {surname}");
+        Console.WriteLine($"Monthly Salary: {monthlySalary:C}");
+        Console.WriteLine($"Hourly Wage: {hourlyWage:C}");
+        Console.WriteLine($"Overtime Pay: {overtimePay:C}");
+        Console.WriteLine($"Total Salary: {totalSalary:C}");
     }
 
-    static void HesaplaUcretVeMesai(double aylikMaas, double haftalikCalismaSaat, double haftalikMesaiSaat, out double saatlikUcret, out double ekstraMesaiUcreti)
+    static double CalculateHourlyWage(double monthlySalary, double weeklyWorkHours)
     {
-        const double HAFTA_SAYISI = 4.33; // Ortalama bir aydaki hafta sayısı
-        const double MESAI_KATI = 1.5; // Ekstra mesai ücreti, saatlik ücretin 1.5 katı
+        const double WEEKS_IN_A_MONTH = 4.33; // Average number of weeks in a month
 
-        double toplamCalismaSaat = haftalikCalismaSaat * HAFTA_SAYISI;
-        double saatlikUcret = aylikMaas / toplamCalismaSaat;
+        double hourlyWage = monthlySalary / (weeklyWorkHours * WEEKS_IN_A_MONTH);
+        return hourlyWage;
+    }
 
-        double ekstraMesaiSaatUcreti = saatlikUcret * MESAI_KATI;
-        ekstraMesaiUcreti = haftalikMesaiSaat * ekstraMesaiSaatUcreti;
+    static double CalculateOvertimePay(double weeklyWorkHours, double hourlyWage)
+    {
+        const double STANDARD_WEEKLY_HOURS = 40; // Standard weekly working hours
+
+        double overtimeHours = weeklyWorkHours > STANDARD_WEEKLY_HOURS ? weeklyWorkHours - STANDARD_WEEKLY_HOURS : 0;
+        double overtimePay = overtimeHours * hourlyWage;
+
+        return overtimePay;
     }
 }
+
