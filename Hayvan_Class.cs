@@ -1,3 +1,12 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   Hayvan_Class.cs                                                          */
+/*                                                                            */
+/*   By: meralhamarat24@gmail.com                                             */
+/*                                                                            */
+/* ************************************************************************** */
+
 using System;
 
 // Temel sınıf (base class) veya süper sınıf (super class) veya ana sınıf (parent class)
