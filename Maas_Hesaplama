@@ -13,11 +13,11 @@ class Program
 {
     static void Main()
     {
-        Console.ForegroundColor = ConsoleColor.Green; // Rengi yeşil olarak ayarla
+        Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("╔══════════════════════════════════════════════════╗");
         Console.WriteLine("║              Employee Salary Calculator          ║");
         Console.WriteLine("╚══════════════════════════════════════════════════╝");
-        Console.ResetColor(); // Rengi varsayılan renge geri döndür
+        Console.ResetColor();
 
         // Get basic information
         Console.Write("Enter your name: ");
@@ -26,47 +26,39 @@ class Program
         Console.Write("Enter your surname: ");
         string surname = Console.ReadLine();
 
-        Console.Write("Enter your monthly salary: ");
-        double monthlySalary = Convert.ToDouble(Console.ReadLine());
+        // Get position hourly wage
+        Console.Write("Enter your position's hourly wage: ");
+        double hourlyWage = Convert.ToDouble(Console.ReadLine());
 
-        // Get overtime information
-        Console.Write("Enter your weekly overtime hours: ");
+        // Get weekly work hours and overtime hours
+        Console.Write("Enter your weekly work hours: ");
         double weeklyWorkHours = Convert.ToDouble(Console.ReadLine());
 
-        // Calculate hourly wage
-        double hourlyWage = CalculateHourlyWage(monthlySalary, weeklyWorkHours);
-
-        // Calculate overtime pay
-        double overtimePay = CalculateOvertimePay(weeklyWorkHours, hourlyWage);
+        Console.Write("Enter your weekly overtime hours: ");
+        double overtimeHours = Convert.ToDouble(Console.ReadLine());
 
         // Calculate total salary
-        double totalSalary = monthlySalary + overtimePay;
+        double totalSalary = CalculateTotalSalary(hourlyWage, weeklyWorkHours, overtimeHours);
 
         // Display the results
         Console.WriteLine("\nCalculated Information:");
         Console.WriteLine($"Name Surname: {name} {surname}");
-        Console.WriteLine($"Monthly Salary: {monthlySalary:C}");
         Console.WriteLine($"Hourly Wage: {hourlyWage:C}");
-        Console.WriteLine($"Overtime Pay: {overtimePay:C}");
+        Console.WriteLine($"Weekly Work Hours: {weeklyWorkHours}");
+        Console.WriteLine($"Overtime Hours: {overtimeHours}");
         Console.WriteLine($"Total Salary: {totalSalary:C}");
     }
 
-    static double CalculateHourlyWage(double monthlySalary, double weeklyWorkHours)
+    static double CalculateTotalSalary(double hourlyWage, double weeklyWorkHours, double overtimeHours)
     {
+        const double OVERTIME_MULTIPLIER = 1.5; // Overtime pay multiplier
+        const double STANDARD_WEEKLY_HOURS = 40; // Standard weekly working hours
         const double WEEKS_IN_A_MONTH = 4.33; // Average number of weeks in a month
 
-        double hourlyWage = monthlySalary / (weeklyWorkHours * WEEKS_IN_A_MONTH);
-        return hourlyWage;
-    }
+        double overtimePay = overtimeHours * hourlyWage * OVERTIME_MULTIPLIER;
+        double totalSalary = (hourlyWage * weeklyWorkHours + overtimePay) * WEEKS_IN_A_MONTH;
 
-    static double CalculateOvertimePay(double weeklyWorkHours, double hourlyWage)
-    {
-        const double STANDARD_WEEKLY_HOURS = 40; // Standard weekly working hours
-
-        double overtimeHours = weeklyWorkHours > STANDARD_WEEKLY_HOURS ? weeklyWorkHours - STANDARD_WEEKLY_HOURS : 0;
-        double overtimePay = overtimeHours * hourlyWage;
-
-        return overtimePay;
+        return totalSalary;
     }
 }
 
