@@ -1,0 +1,49 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Personel Maaş ve Mesai Hesaplama");
+
+        // Temel bilgileri al
+        Console.Write("Adınızı girin: ");
+        string ad = Console.ReadLine();
+
+        Console.Write("Soyadınızı girin: ");
+        string soyad = Console.ReadLine();
+
+        Console.Write("Aylık maaşınızı girin: ");
+        double aylikMaas = Convert.ToDouble(Console.ReadLine());
+
+        // Mesai bilgilerini al
+        Console.Write("Haftalık ekstra mesai saatini girin: ");
+        double haftalikMesaiSaat = Convert.ToDouble(Console.ReadLine());
+
+        // Saatlik ücreti ve ekstra mesai ücretini hesapla
+        HesaplaUcretVeMesai(aylikMaas, 40, haftalikMesaiSaat, out double saatlikUcret, out double ekstraMesaiUcreti);
+
+        // Toplam maaşı hesapla
+        double toplamMaas = aylikMaas + ekstraMesaiUcreti;
+
+        // Sonuçları göster
+        Console.WriteLine("\nHesaplanan Bilgiler:");
+        Console.WriteLine($"Ad Soyad: {ad} {soyad}");
+        Console.WriteLine($"Aylık Maaş: {aylikMaas:C}");
+        Console.WriteLine($"Saatlik Ücret: {saatlikUcret:C}");
+        Console.WriteLine($"Ekstra Mesai Ücreti: {ekstraMesaiUcreti:C}");
+        Console.WriteLine($"Toplam Maaş: {toplamMaas:C}");
+    }
+
+    static void HesaplaUcretVeMesai(double aylikMaas, double haftalikCalismaSaat, double haftalikMesaiSaat, out double saatlikUcret, out double ekstraMesaiUcreti)
+    {
+        const double HAFTA_SAYISI = 4.33; // Ortalama bir aydaki hafta sayısı
+        const double MESAI_KATI = 1.5; // Ekstra mesai ücreti, saatlik ücretin 1.5 katı
+
+        double toplamCalismaSaat = haftalikCalismaSaat * HAFTA_SAYISI;
+        saatlikUcret = aylikMaas / toplamCalismaSaat;
+
+        double ekstraMesaiSaatUcreti = saatlikUcret * MESAI_KATI;
+        ekstraMesaiUcreti = haftalikMesaiSaat * ekstraMesaiSaatUcreti;
+    }
+}
