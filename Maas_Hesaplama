@@ -13,7 +13,11 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Employee Salary and Overtime Calculation");
+        Console.ForegroundColor = ConsoleColor.Green; // Rengi yeşil olarak ayarla
+        Console.WriteLine("╔══════════════════════════════════════════════════╗");
+        Console.WriteLine("║              Employee Salary Calculator          ║");
+        Console.WriteLine("╚══════════════════════════════════════════════════╝");
+        Console.ResetColor(); // Rengi varsayılan renge geri döndür
 
         // Get basic information
         Console.Write("Enter your name: ");
