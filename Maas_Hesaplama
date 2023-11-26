@@ -17,11 +17,14 @@ class Program
         double aylikMaas = Convert.ToDouble(Console.ReadLine());
 
         // Mesai bilgilerini al
+        Console.Write("Haftalık çalışma saatini girin: ");
+        double haftalikCalismaSaat = Convert.ToDouble(Console.ReadLine());
+
         Console.Write("Haftalık ekstra mesai saatini girin: ");
         double haftalikMesaiSaat = Convert.ToDouble(Console.ReadLine());
 
         // Saatlik ücreti ve ekstra mesai ücretini hesapla
-        HesaplaUcretVeMesai(aylikMaas, 40, haftalikMesaiSaat, out double saatlikUcret, out double ekstraMesaiUcreti);
+        HesaplaUcretVeMesai(aylikMaas, haftalikCalismaSaat, haftalikMesaiSaat, out double saatlikUcret, out double ekstraMesaiUcreti);
 
         // Toplam maaşı hesapla
         double toplamMaas = aylikMaas + ekstraMesaiUcreti;
@@ -41,7 +44,7 @@ class Program
         const double MESAI_KATI = 1.5; // Ekstra mesai ücreti, saatlik ücretin 1.5 katı
 
         double toplamCalismaSaat = haftalikCalismaSaat * HAFTA_SAYISI;
-        saatlikUcret = aylikMaas / toplamCalismaSaat;
+        double saatlikUcret = aylikMaas / toplamCalismaSaat;
 
         double ekstraMesaiSaatUcreti = saatlikUcret * MESAI_KATI;
         ekstraMesaiUcreti = haftalikMesaiSaat * ekstraMesaiSaatUcreti;
