@@ -13,12 +13,40 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Sıcak-Soğuk Oyununa Hoş Geldiniz!");
-        Console.WriteLine("Bilgisayar 1 ile 100 arasında bir sayı tuttu. Tahmininizi girin.");
+        OyunuBaslat();
+    }
 
-        // Bilgisayarın aklındaki sayı
+    static void OyunuBaslat()
+    {
+        Console.WriteLine("Sıcak-Soğuk Oyununa Hoş Geldiniz!");
+
+        int toplamPuan = 0;
+
+        while (true)
+        {
+            int puan = OyunuOyna();
+
+            toplamPuan += puan;
+
+            Console.WriteLine($"Toplam Puanınız: {toplamPuan}");
+
+            Console.Write("Yeniden oynamak istiyor musunuz? (E/H): ");
+            string cevap = Console.ReadLine();
+
+            if (cevap.ToUpper() != "E")
+            {
+                break;
+            }
+        }
+
+        Console.WriteLine("Oyun bitti. Toplam Puanınız: " + toplamPuan);
+    }
+
+    static int OyunuOyna()
+    {
         int hedefSayi = new Random().Next(1, 101);
-        int tahminHakki = 5; // Örnek olarak 5 tahmin hakkı tanındı.
+        int tahminHakki = 20; // Tahmin hakkını 20 yap
+        int puan = 100;
 
         while (tahminHakki > 0)
         {
@@ -30,7 +58,7 @@ class Program
                 if (tahmin == hedefSayi)
                 {
                     Console.WriteLine($"Tebrikler! Doğru tahmin ettiniz. Hedef sayı: {hedefSayi}");
-                    break;
+                    return puan;
                 }
                 else
                 {
@@ -41,16 +69,19 @@ class Program
             else
             {
                 Console.WriteLine("Geçerli bir sayı giriniz.");
+                continue; // Geçersiz giriş olduğunda döngüyü başa al
             }
 
             tahminHakki--;
-            Console.WriteLine($"Kalan tahmin hakkınız: {tahminHakki}");
+            if (tahminHakki > 0)
+            {
+                puan -= 20; // Tahmin hakkı bittiğinde puan düşürülüyor
+                Console.WriteLine($"Kalan tahmin hakkınız: {tahminHakki}");
+            }
         }
 
-        if (tahminHakki == 0)
-        {
-            Console.WriteLine($"Üzgünüm! Tahmin hakkınız bitti. Hedef sayı: {hedefSayi}");
-        }
+        Console.WriteLine($"Üzgünüm! Tahmin hakkınız bitti. Hedef sayı: {hedefSayi}");
+        return 0;
     }
 
     static string SogukSicakDurumu(int tahmin, int hedefSayi)
@@ -59,7 +90,7 @@ class Program
 
         if (fark == 0)
         {
-            return "Alev alev! Tam isabet!";
+            return "Vuhuu Tebrikler! Tam isabet!";
         }
         else if (fark <= 5)
         {
