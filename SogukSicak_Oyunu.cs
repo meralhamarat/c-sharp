@@ -64,6 +64,9 @@ class Program
                 {
                     string durum = SogukSicakDurumu(tahmin, hedefSayi);
                     Console.WriteLine(durum);
+
+                    // Her yanlış tahminde 5 puan düşür
+                    puan -= 5;
                 }
             }
             else
@@ -75,7 +78,6 @@ class Program
             tahminHakki--;
             if (tahminHakki > 0)
             {
-                puan -= 20; // Tahmin hakkı bittiğinde puan düşürülüyor
                 Console.WriteLine($"Kalan tahmin hakkınız: {tahminHakki}");
             }
         }
@@ -90,7 +92,7 @@ class Program
 
         if (fark == 0)
         {
-            return "Vuhuu Tebrikler! Tam isabet!";
+            return "Alev alev! Tam isabet!";
         }
         else if (fark <= 5)
         {
