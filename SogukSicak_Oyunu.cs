@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Sıcak-Soğuk Oyununa Hoş Geldiniz.");
+        Console.WriteLine("Sıcak-Soğuk Oyununa Hoş Geldiniz!");
         Console.WriteLine("Bilgisayar 1 ile 100 arasında bir sayı tuttu. Tahmininizi girin.");
 
         // Bilgisayarın aklındaki sayı
