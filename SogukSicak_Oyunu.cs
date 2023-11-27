@@ -18,24 +18,22 @@ class Program
 
         // Bilgisayarın aklındaki sayı
         int hedefSayi = new Random().Next(1, 101);
+        int tahminHakki = 5; // Örnek olarak 5 tahmin hakkı tanındı.
 
-        while (true)
+        while (tahminHakki > 0)
         {
-            // Kullanıcının tahmini alınır
             Console.Write("Tahmininiz: ");
             string tahminStr = Console.ReadLine();
 
             if (int.TryParse(tahminStr, out int tahmin))
             {
-                // Tahmin kontrolü yapılır
                 if (tahmin == hedefSayi)
                 {
-                    Console.WriteLine("Tebrikler! Doğru tahmin ettiniz.");
+                    Console.WriteLine($"Tebrikler! Doğru tahmin ettiniz. Hedef sayı: {hedefSayi}");
                     break;
                 }
                 else
                 {
-                    // Sıcak-Soğuk durumunu kontrol eder
                     string durum = SogukSicakDurumu(tahmin, hedefSayi);
                     Console.WriteLine(durum);
                 }
@@ -44,10 +42,17 @@ class Program
             {
                 Console.WriteLine("Geçerli bir sayı giriniz.");
             }
+
+            tahminHakki--;
+            Console.WriteLine($"Kalan tahmin hakkınız: {tahminHakki}");
+        }
+
+        if (tahminHakki == 0)
+        {
+            Console.WriteLine($"Üzgünüm! Tahmin hakkınız bitti. Hedef sayı: {hedefSayi}");
         }
     }
 
-    // Sıcak-Soğuk durumunu kontrol eden fonksiyon
     static string SogukSicakDurumu(int tahmin, int hedefSayi)
     {
         int fark = Math.Abs(tahmin - hedefSayi);
