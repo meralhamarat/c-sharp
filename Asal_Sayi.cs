@@ -26,7 +26,8 @@ class Program
             }
             else
             {
-                Console.WriteLine($"{sayi} bir asal sayı değildir.");
+                int enKucukCarpan = EnKucukCarpaniBul(sayi);
+                Console.WriteLine($"{sayi} bir asal sayı değildir. En küçük çarpanı: {enKucukCarpan}");
             }
         }
         else
@@ -52,5 +53,19 @@ class Program
         }
 
         return true;
+    }
+
+    // Bir sayının en küçük çarpanını bulan fonksiyon
+    static int EnKucukCarpaniBul(int sayi)
+    {
+        for (int i = 2; i <= sayi; i++)
+        {
+            if (sayi % i == 0)
+            {
+                return i;
+            }
+        }
+
+        return -1; // Bu durumda sayının kendisi asal olabilir.
     }
 }
