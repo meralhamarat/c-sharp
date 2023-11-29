@@ -34,8 +34,10 @@ class MilyonerUygulamasi
 
         string[] dogruCevaplar = {"B", "C", "A", "D", "A", "B", "B", "A", "C", "C"};
 
-        int barajSorusu = 4; // 4. soru baraj sorusu
-        int barajPuanı = 35000; // 35,000 TL baraj puanı
+        int barajSoru1 = 2; // 2. soru baraj sorusu
+        int barajSoru2 = 5; // 5. soru baraj sorusu
+        int barajPuan1 = 0; // 0 TL baraj puanı
+        int barajPuan2 = 20000; // 20,000 TL baraj puanı
 
         int puan = 0;
 
@@ -54,21 +56,36 @@ class MilyonerUygulamasi
 
             if (kullaniciCevabi == dogruCevaplar[i])
             {
-                Console.WriteLine("Doğru!\n");
-                puan++;
+                puan += 10000;
+                Console.WriteLine($"Doğru! Kazandığınız tutar: {puan} TL\n");
 
-                // Baraj sorusu kontrolü
-                if (i == barajSorusu - 1 && puan >= barajPuanı)
+                // Baraj sorularını kontrol et
+                if (i + 1 == barajSoru1 && puan >= barajPuan1)
                 {
-                    Console.WriteLine($"Tebrikler! Barajı geçtiniz ve {barajPuanı} TL kazandınız.");
+                    Console.WriteLine($"Tebrikler! {barajSoru1}. soruyu doğru bildiniz ve {barajPuan1} TL kazandınız.");
+                    break;
+                }
+                else if (i + 1 == barajSoru2 && puan >= barajPuan2)
+                {
+                    Console.WriteLine($"Tebrikler! {barajSoru2}. soruyu doğru bildiniz ve {barajPuan2} TL kazandınız.");
                     break;
                 }
             }
             else
             {
                 Console.WriteLine($"Yanlış. Doğru cevap: {dogruCevaplar[i]}.\n");
-                Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {puan * 10000} TL");
-                break;
+
+                // 3. soruda elenildiyse en alttaki en büyük baraj parası kazanılır
+                if (i == 2)
+                {
+                    Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {barajPuan2} TL");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {puan} TL");
+                    break;
+                }
             }
         }
 
