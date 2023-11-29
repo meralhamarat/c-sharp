@@ -92,7 +92,7 @@ class Program
 
         if (fark == 0)
         {
-            return "Alev alev! Tam isabet!";
+            return "Vuhuu tebriklerr! Tam isabet!";
         }
         else if (fark <= 5)
         {
