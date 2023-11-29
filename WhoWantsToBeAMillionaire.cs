@@ -65,27 +65,31 @@ class MilyonerUygulamasi
 
             if (kullaniciCevabi == dogruCevaplar[i])
             {
+                // Soruyu doğru cevaplayınca puanı güncelle
                 puan += 10000;
                 Console.WriteLine($"Doğru! Kazandığınız tutar: {puan} TL\n");
 
-                // Baraj sorularını kontrol et
+                // Baraj sorularını kontrol et ve devam et
                 if (i + 1 == barajSoru1 && puan >= barajPuan1)
                 {
                     Console.WriteLine($"Tebrikler! {barajSoru1}. soruyu doğru bildiniz ve {barajPuan1} TL kazandınız.");
-                    break;
                 }
-                else if (i + 1 == barajSoru2 && puan >= barajPuan2)
+                                else if (i + 1 == barajSoru2 && puan >= barajPuan2)
                 {
                     Console.WriteLine($"Tebrikler! {barajSoru2}. soruyu doğru bildiniz ve {barajPuan2} TL kazandınız.");
-                    break;
                 }
             }
             else
             {
+                // Yanlış cevap durumunda oyunu bitir ve baraj paralarını kontrol et
                 Console.WriteLine($"Yanlış. Doğru cevap: {dogruCevaplar[i]}.\n");
 
-                // 3. soruda elenildiyse en alttaki en büyük baraj parası kazanılır
-                if (i == 2)
+                if (i + 1 == barajSoru1)
+                {
+                    Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {barajPuan1} TL");
+                    break;
+                }
+                else if (i + 1 == barajSoru2)
                 {
                     Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {barajPuan2} TL");
                     break;
