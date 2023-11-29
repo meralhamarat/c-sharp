@@ -13,7 +13,18 @@ class MilyonerUygulamasi
 {
     static void Main()
     {
-        Console.WriteLine("Milyoner Yarışması'na Hoş Geldiniz!");
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("╔══════════════════════════════════════════════════════╗");
+        Console.WriteLine("║                 M İ L Y O N E R                      ║");
+        Console.WriteLine("║                  Y A R I Ş M A S I                   ║");
+        Console.WriteLine("╚══════════════════════════════════════════════════════╝");
+        Console.ResetColor();
+        Console.WriteLine("Milyoner Yarışması'na hoş geldiniz!");
+        Console.WriteLine("Toplamda 10 soru bulunmaktadır. Her soru için 4 seçenek vardır ve");
+        Console.WriteLine("doğru seçeneği bulduğunuzda ödül miktarınız artar. Ancak dikkatli olun,");
+        Console.WriteLine("yanlış bir cevap verdiğinizde elenebilir ve kazandığınız miktarı kaybedebilirsiniz.");
+        Console.WriteLine("Başarılar dileriz!\n");
+
 
         string[] sorular = {
             "1. Türkiye'nin başkenti nedir?",
