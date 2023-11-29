@@ -19,18 +19,20 @@ class MilyonerUygulamasi
             "10. Hangi gezegen 'Akrep Kuyruğu'na sahiptir?"
         };
 
-        string[] dogruCevaplar = {
-            "Ankara",
-            "Dünya",
-            "Kırmızı",
-            "1923",
-            "1",
-            "Oksijen",
-            "1452",
-            "Ağrı Dağı",
-            "Yılan",
-            "Neptün"
+        string[][] cevaplar = {
+            new string[] {"A) İstanbul", "B) Ankara", "C) İzmir", "D) Bursa"},
+            new string[] {"A) Mars", "B) Venüs", "C) Dünya", "D) Jüpiter"},
+            new string[] {"A) Kırmızı", "B) Mavi", "C) Sarı", "D) Yeşil"},
+            new string[] {"A) 1920", "B) 1921", "C) 1922", "D) 1923"},
+            new string[] {"A) 1", "B) 2", "C) 4", "D) 6"},
+            new string[] {"A) Hidrojen", "B) Oksijen", "C) Karbon", "D) Azot"},
+            new string[] {"A) 1400", "B) 1452", "C) 1500", "D) 1550"},
+            new string[] {"A) Ağrı Dağı", "B) Erciyes", "C) Cilo Dağı", "D) Süphan Dağı"},
+            new string[] {"A) Fil", "B) Kartal", "C) Yılan", "D) Köpek"},
+            new string[] {"A) Jüpiter", "B) Mars", "C) Neptün", "D) Uranüs"}
         };
+
+        string[] dogruCevaplar = {"B", "C", "A", "D", "A", "B", "B", "A", "C", "C"};
 
         int barajSorusu = 4; // 4. soru baraj sorusu
         int barajPuanı = 35000; // 35,000 TL baraj puanı
@@ -41,10 +43,16 @@ class MilyonerUygulamasi
         {
             Console.WriteLine(sorular[i]);
 
-            Console.Write("Cevabınız: ");
-            string kullaniciCevabi = Console.ReadLine();
+            // Seçenekleri yazdır
+            for (int j = 0; j < cevaplar[i].Length; j++)
+            {
+                Console.WriteLine(cevaplar[i][j]);
+            }
 
-            if (kullaniciCevabi.ToLower() == dogruCevaplar[i].ToLower())
+            Console.Write("Cevabınızı girin (A, B, C veya D): ");
+            string kullaniciCevabi = Console.ReadLine().ToUpper(); // Küçük veya büyük harf girişine karşı duyarlı değil
+
+            if (kullaniciCevabi == dogruCevaplar[i])
             {
                 Console.WriteLine("Doğru!\n");
                 puan++;
