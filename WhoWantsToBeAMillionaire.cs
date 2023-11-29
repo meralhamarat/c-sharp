@@ -25,7 +25,6 @@ class MilyonerUygulamasi
         Console.WriteLine("yanlış bir cevap verdiğinizde elenebilir ve kazandığınız miktarı kaybedebilirsiniz.");
         Console.WriteLine("Başarılar dileriz!\n");
 
-
         string[] sorular = {
             "1. Türkiye'nin başkenti nedir?",
             "2. Hangi gezegen Güneş Sistemi'nde üçüncü sıradadır?",
@@ -54,9 +53,9 @@ class MilyonerUygulamasi
 
         string[] dogruCevaplar = {"B", "C", "A", "D", "A", "B", "B", "A", "C", "C"};
 
-        int barajSoru1 = 2; // 2. soru baraj sorusu
-        int barajSoru2 = 5; // 5. soru baraj sorusu
-        int barajPuan1 = 0; // 0 TL baraj puanı
+        int barajSoru1 = 5; // 5. soru baraj sorusu
+        int barajSoru2 = 8; // 8. soru baraj sorusu
+        int barajPuan1 = 10000; // 10,000 TL baraj puanı
         int barajPuan2 = 20000; // 20,000 TL baraj puanı
 
         int puan = 0;
@@ -85,7 +84,7 @@ class MilyonerUygulamasi
                 {
                     Console.WriteLine($"Tebrikler! {barajSoru1}. soruyu doğru bildiniz ve {barajPuan1} TL kazandınız.");
                 }
-                                else if (i + 1 == barajSoru2 && puan >= barajPuan2)
+                else if (i + 1 == barajSoru2 && puan >= barajPuan2)
                 {
                     Console.WriteLine($"Tebrikler! {barajSoru2}. soruyu doğru bildiniz ve {barajPuan2} TL kazandınız.");
                 }
@@ -102,16 +101,17 @@ class MilyonerUygulamasi
                 }
                 else if (i + 1 == barajSoru2)
                 {
-                    Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {barajPuan2} TL");
-                    break;
-                }
-                else
-                {
                     Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {puan} TL");
                     break;
                 }
             }
         }
+
+        // Konsol penceresini kapatmadan önce kullanıcı girişini beklet
+        Console.ReadLine();
+    }
+}
+
 
         // Konsol penceresini kapatmadan önce kullanıcı girişini beklet
         Console.ReadLine();
