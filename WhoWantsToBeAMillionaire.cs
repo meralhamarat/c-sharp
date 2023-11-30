@@ -25,7 +25,6 @@ class MilyonerUygulamasi
         Console.WriteLine("yanlis bir cevap verdiginizde elenebilir ve kazandiginiz miktarı kaybedebilirsiniz.");
         Console.WriteLine("Basarilar dileriz!\n");
 
-
         string[] sorular = {
             "1. Turkiye'nin baskenti nedir?",
             "2. Hangi gezegen Gunes Sistemi'nde ucuncu siradadir?",
@@ -81,15 +80,15 @@ class MilyonerUygulamasi
                 Console.WriteLine($"Dogru! Kazandiniz tutar: {puan} TL\n");
 
                 // Baraj sorularini kontrol et ve devam et
-                if ((i + 1 == barajSoru1 || i + 1 == barajSoru2) && puan >= barajPuan1)
+                if (i + 1 == barajSoru1 || i + 1 == barajSoru2)
                 {
-                    if (i + 1 == barajSoru1)
+                    if (puan >= barajPuan1 && i + 1 == barajSoru1)
                     {
                         barajPuan1 = puan; // Baraj sorusunu dogru bildiyse kazandigi parayi baraj puanina esitle
                         Console.WriteLine($"Tebrikler! {barajSoru1}. soruyu dogru bildiniz ve {barajPuan1} TL kazandiniz.");
                     }
 
-                    if (i + 1 == barajSoru2)
+                    if (puan >= barajPuan2 && i + 1 == barajSoru2)
                     {
                         barajPuan2 = puan; // Baraj sorusunu dogru bildiyse kazandigi parayi baraj puanina esitle
                         Console.WriteLine($"Tebrikler! {barajSoru2}. soruyu dogru bildiniz ve {barajPuan2} TL kazandiniz.");
