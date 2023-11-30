@@ -83,10 +83,12 @@ class MilyonerUygulamasi
                 // Baraj sorularını kontrol et ve devam et
                 if (i + 1 == barajSoru1 && puan >= barajPuan1)
                 {
+                    barajPuan1 = puan; // Baraj sorusunu doğru bildiyse kazandığı parayı baraj puanına eşitle
                     Console.WriteLine($"Tebrikler! {barajSoru1}. soruyu doğru bildiniz ve {barajPuan1} TL kazandınız.");
                 }
                 else if (i + 1 == barajSoru2 && puan >= barajPuan2)
                 {
+                    barajPuan2 = puan; // Baraj sorusunu doğru bildiyse kazandığı parayı baraj puanına eşitle
                     Console.WriteLine($"Tebrikler! {barajSoru2}. soruyu doğru bildiniz ve {barajPuan2} TL kazandınız.");
                 }
             }
