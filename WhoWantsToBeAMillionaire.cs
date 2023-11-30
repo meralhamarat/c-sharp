@@ -84,7 +84,7 @@ class MilyonerUygulamasi
                 break;
             }
 
-            if (kullaniciCevabi == dogruCevaplar[i])
+            if (kullaniciCevabi.Length > 0 && kullaniciCevabi.Substring(1) == dogruCevaplar[i])
             {
                 // Soruyu doğru cevaplayınca puanı güncelle
                 puan += 10000;
