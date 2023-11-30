@@ -23,7 +23,8 @@ class MilyonerUygulamasi
         Console.WriteLine("Toplamda 10 soru bulunmaktadır. Her soru için 4 seçenek vardır ve");
         Console.WriteLine("doğru seçeneği bulduğunuzda ödül miktarınız artar. Ancak dikkatli olun,");
         Console.WriteLine("yanlış bir cevap verdiğinizde elenebilir ve kazandığınız miktarı kaybedebilirsiniz.");
-        Console.WriteLine("Başarılar dileriz!\n");
+        Console.WriteLine("Çekilmek istiyorsanız 'Ç' veya 'cekil' tuşuna basabilir, o ana kadar kazandığınız");
+        Console.WriteLine("parayı almak için 'A' veya 'al' tuşuna basabilirsiniz. Başarılar dileriz!\n");
 
         string[] sorular = {
             "1. Türkiye'nin başkenti nedir?",
@@ -70,12 +71,17 @@ class MilyonerUygulamasi
                 Console.WriteLine(cevaplar[i][j]);
             }
 
-            Console.Write("Cevabınızı girin (A, B, C veya D), çıkmak için 'X' tuşuna basın: ");
+            Console.Write("Cevabınızı girin (A, B, C veya D), çıkmak için 'Ç' veya 'cekil', o ana kadar kazandığınız parayı almak için 'A' veya 'al' tuşuna basın: ");
             string kullaniciCevabi = Console.ReadLine().ToUpper(); // Küçük veya büyük harf girişine karşı duyarlı değil
 
-            if (kullaniciCevabi == "X")
+            if (kullaniciCevabi == "Ç" || kullaniciCevabi == "CEKIL")
             {
-                Console.WriteLine("Oyunu iptal ettiniz. Kazandığınız tutar: 0 TL");
+                Console.WriteLine($"Çekilmeyi tercih ettiniz. Kazandığınız tutar: {puan} TL");
+                break;
+            }
+            else if (kullaniciCevabi == "A" || kullaniciCevabi == "AL")
+            {
+                Console.WriteLine($"O ana kadar kazandığınız tutar: {puan} TL");
                 break;
             }
 
@@ -110,13 +116,6 @@ class MilyonerUygulamasi
                     Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {barajPuan2} TL");
                     break;
                 }
-            }
-
-            // Yanlış cevap durumunda oyunu bitir
-            if (kullaniciCevabi != dogruCevaplar[i])
-            {
-                Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {puan} TL");
-                break;
             }
         }
 
