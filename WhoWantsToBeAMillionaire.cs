@@ -15,7 +15,7 @@ class MilyonerUygulamasi
     {
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("╔══════════════════════════════════════════════════════╗");
-        Console.WriteLine("║                 M İ L Y O N E R                           ║");
+        Console.WriteLine("║                 M İ L Y O N E R                      ║");
         Console.WriteLine("║                  Y A R I Ş M A S I                   ║");
         Console.WriteLine("╚══════════════════════════════════════════════════════╝");
         Console.ResetColor();
