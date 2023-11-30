@@ -6,6 +6,14 @@
 /*   By: meralhamarat24@gmail.com                                             */
 /*                                                                            */
 /* ************************************************************************** */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   WhoWantsToBeAMillionaire.cs                                              */
+/*                                                                            */
+/*   By: meralhamarat24@gmail.com                                             */
+/*                                                                            */
+/* ************************************************************************** */
 
 using System;
 
@@ -23,7 +31,8 @@ class MilyonerUygulamasi
         Console.WriteLine("Toplamda 10 soru bulunmaktadır. Her soru için 4 seçenek vardır ve");
         Console.WriteLine("doğru seçeneği bulduğunuzda ödül miktarınız artar. Ancak dikkatli olun,");
         Console.WriteLine("yanlış bir cevap verdiğinizde elenebilir ve kazandığınız miktarı kaybedebilirsiniz.");
-        Console.WriteLine("Çekilmek istiyorsanız 'X' tuşuna basabilir, o ana kadar kazandığınız parayı almak için 'A' veya 'al' tuşuna basabilirsiniz. Başarılar dileriz!\n");
+        Console.WriteLine("Başarılar dileriz!\n");
+
 
         string[] sorular = {
             "1. Türkiye'nin başkenti nedir?",
@@ -70,21 +79,10 @@ class MilyonerUygulamasi
                 Console.WriteLine(cevaplar[i][j]);
             }
 
-            Console.Write("Cevabınızı girin (A, B, C veya D), çıkmak için 'X' tuşuna basın, o ana kadar kazandığınız parayı almak için 'A' veya 'al' tuşuna basın: ");
+            Console.Write("Cevabınızı girin (A, B, C veya D): ");
             string kullaniciCevabi = Console.ReadLine().ToUpper(); // Küçük veya büyük harf girişine karşı duyarlı değil
 
-            if (kullaniciCevabi == "X")
-            {
-                Console.WriteLine($"Çekilmeyi tercih ettiniz. Kazandığınız tutar: {puan} TL");
-                break;
-            }
-            else if (kullaniciCevabi == "A" || kullaniciCevabi == "AL")
-            {
-                Console.WriteLine($"O ana kadar kazandığınız tutar: {puan} TL");
-                break;
-            }
-
-            if (kullaniciCevabi.Length > 0 && kullaniciCevabi.Substring(1) == dogruCevaplar[i])
+            if (kullaniciCevabi == dogruCevaplar[i])
             {
                 // Soruyu doğru cevaplayınca puanı güncelle
                 puan += 10000;
@@ -115,6 +113,13 @@ class MilyonerUygulamasi
                     Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {barajPuan2} TL");
                     break;
                 }
+            }
+
+            // Yanlış cevap durumunda oyunu bitir
+            if (kullaniciCevabi != dogruCevaplar[i])
+            {
+                Console.WriteLine($"Yarışma sona erdi. Kazandığınız tutar: {puan} TL");
+                break;
             }
         }
 
