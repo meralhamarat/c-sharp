@@ -25,7 +25,6 @@ class MilyonerUygulamasi
         Console.WriteLine("yanlış bir cevap verdiğinizde elenebilir ve kazandığınız miktarı kaybedebilirsiniz.");
         Console.WriteLine("Başarılar dileriz!\n");
 
-
         string[] sorular = {
             "1. Türkiye'nin başkenti nedir?",
             "2. Hangi gezegen Güneş Sistemi'nde üçüncü sıradadır?",
@@ -71,8 +70,14 @@ class MilyonerUygulamasi
                 Console.WriteLine(cevaplar[i][j]);
             }
 
-            Console.Write("Cevabınızı girin (A, B, C veya D): ");
+            Console.Write("Cevabınızı girin (A, B, C veya D), çıkmak için 'X' tuşuna basın: ");
             string kullaniciCevabi = Console.ReadLine().ToUpper(); // Küçük veya büyük harf girişine karşı duyarlı değil
+
+            if (kullaniciCevabi == "X")
+            {
+                Console.WriteLine("Oyunu iptal ettiniz. Kazandığınız tutar: 0 TL");
+                break;
+            }
 
             if (kullaniciCevabi == dogruCevaplar[i])
             {
