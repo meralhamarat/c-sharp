@@ -11,7 +11,7 @@ using System;
 
 class MilyonerUygulamasi
 {
-    static void Main()
+    static void Main() 
     {
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("╔══════════════════════════════════════════════════════╗");
