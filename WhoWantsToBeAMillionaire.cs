@@ -25,38 +25,39 @@ class MilyonerUygulamasi
         Console.WriteLine("yanlis bir cevap verdiginizde elenebilir ve kazandiginiz miktarı kaybedebilirsiniz.");
         Console.WriteLine("Basarilar dileriz!\n");
 
-        string[] sorular = {
-            "1. Turkiye'nin baskenti nedir?",
-            "2. Hangi gezegen Gunes Sistemi'nde ucuncu siradadir?",
-            "3. Hangi renk gokkusaginin ilk rengidir?",
-            "4. Hangi yil Turkiye'de Cumhuriyet ilan edilmistir?",
-            "5. Insan vucudunda kac adet kalp bulunur?",
-            "6. Hangi elementin simgesi 'O' harfi ile gosterilir?",
-            "7. Hangi yil Leonardo da Vinci dogmustur?",
-            "8. Turkiye'nin en yuksek dagi hangisidir?",
-            "9. Hangi hayvan memeli degildir?",
-            "10. Hangi gezegen 'Akrep Kuyrugu'na sahiptir?"
-        };
+          string[] sorular = {
+        "1. Hangi gezegen Gunes Sistemi'nde en büyük boyuta sahiptir?",
+        "2. Kimyasal sembolü 'Hg' olan element nedir?",
+        "3. Hangi yıl Albert Einstein Nobel Fizik Ödülü'nü kazanmıştır?",
+        "4. Hangi ünlü ressam 'Yıldızlı Gece' tablosunu yapmıştır?",
+        "5. Edebiyat tarihinde 'Divan-i Hikmet' adlı eseri ile tanınan kimdir?",
+        "6. En hızlı hayvan hangisidir?",
+        "7. Hangi element doğada tek başına diğer elementlerle bileşik yapmaz?",
+        "8. Tarihteki ilk bilinen yazılı eser hangisidir?",
+        "9. Hangi ülkenin bayrağında sadece bir renk vardır?",
+        "10. İnsan vücudundaki en büyük iç organ hangisidir?"
+    };
 
         string[][] cevaplar = {
-            new string[] {"A) Istanbul", "B) Ankara", "C) Izmir", "D) Bursa"},
-            new string[] {"A) Mars", "B) Venus", "C) Dunya", "D) Jupiter"},
-            new string[] {"A) Kirmizi", "B) Mavi", "C) Sari", "D) Yesil"},
-            new string[] {"A) 1920", "B) 1921", "C) 1922", "D) 1923"},
-            new string[] {"A) 1", "B) 2", "C) 4", "D) 6"},
-            new string[] {"A) Hidrojen", "B) Oksijen", "C) Karbon", "D) Azot"},
-            new string[] {"A) 1400", "B) 1452", "C) 1500", "D) 1550"},
-            new string[] {"A) Agri Dagi", "B) Erciyes", "C) Cilo Dagi", "D) Suphan Dagi"},
-            new string[] {"A) Fil", "B) Kartal", "C) Yilan", "D) Kopek"},
-            new string[] {"A) Jupiter", "B) Mars", "C) Neptun", "D) Uranus"}
-        };
+        new string[] {"A) Mars", "B) Jupiter", "C) Venus", "D) Neptune"},
+        new string[] {"A) Mercury", "B) Hydrogen", "C) Silver", "D) Lead"},
+        new string[] {"A) 1915", "B) 1921", "C) 1927", "D) 1935"},
+        new string[] {"A) Leonardo da Vinci", "B) Michelangelo", "C) Vincent van Gogh", "D) Pablo Picasso"},
+        new string[] {"A) Yunus Emre", "B) Mevlana", "C) Hafez", "D) Fuzuli"},
+        new string[] {"A) Cheetah", "B) Leopard", "C) Eagle", "D) Cheetah"},
+        new string[] {"A) Oxygen", "B) Nitrogen", "C) Gold", "D) Radium"},
+        new string[] {"A) Epic of Gilgamesh", "B) Iliad", "C) Mahabharata", "D) Oedipus Rex"},
+        new string[] {"A) Libya", "B) Monaco", "C) Maldives", "D) Jamaica"},
+        new string[] {"A) Heart", "B) Liver", "C) Lung", "D) Brain"}
+    };
 
-        string[] dogruCevaplar = {"B", "C", "A", "D", "A", "B", "B", "A", "C", "C"};
 
-        int barajSoru1 = 2; // 2. soru baraj sorusu
-        int barajSoru2 = 5; // 5. soru baraj sorusu
+        string[] dogruCevaplar = {"B", "A", "C", "C", "B", "B", "A", "A", "B", "B"};
+
+        int barajSoru1 = 3; // 3. soru baraj sorusu
+        int barajSoru2 = 7; // 7. soru baraj sorusu
         int barajPuan1 = 0; // 0 TL baraj puanı
-        int barajPuan2 = 20000; // 20,000 TL baraj puanı
+        int barajPuan2 = 50000; // 50,000 TL baraj puanı
 
         int puan = 0;
 
@@ -76,7 +77,7 @@ class MilyonerUygulamasi
             if (kullaniciCevabi == dogruCevaplar[i])
             {
                 // Soruyu dogru cevaplayinca puani guncelle
-                puan += 10000;
+                puan += 20000;
                 Console.WriteLine($"Dogru! Kazandiniz tutar: {puan} TL\n");
 
                 // Baraj sorularini kontrol et ve devam et
