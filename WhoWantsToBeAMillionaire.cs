@@ -25,32 +25,31 @@ class MilyonerUygulamasi
         Console.WriteLine("yanlis bir cevap verdiginizde elenebilir ve kazandiginiz miktarı kaybedebilirsiniz.");
         Console.WriteLine("Basarilar dileriz!\n");
 
-          string[] sorular = {
-        "1. Hangi gezegen Gunes Sistemi'nde en büyük boyuta sahiptir?",
-        "2. Kimyasal sembolü 'Hg' olan element nedir?",
-        "3. Hangi yıl Albert Einstein Nobel Fizik Ödülü'nü kazanmıştır?",
-        "4. Hangi ünlü ressam 'Yıldızlı Gece' tablosunu yapmıştır?",
-        "5. Edebiyat tarihinde 'Divan-i Hikmet' adlı eseri ile tanınan kimdir?",
-        "6. En hızlı hayvan hangisidir?",
-        "7. Hangi element doğada tek başına diğer elementlerle bileşik yapmaz?",
-        "8. Tarihteki ilk bilinen yazılı eser hangisidir?",
-        "9. Hangi ülkenin bayrağında sadece bir renk vardır?",
-        "10. İnsan vücudundaki en büyük iç organ hangisidir?"
-    };
+        string[] sorular = {
+            "1. Hangi gezegen Gunes Sistemi'nde en büyük boyuta sahiptir?",
+            "2. Kimyasal sembolü 'Hg' olan element nedir?",
+            "3. Hangi yıl Albert Einstein Nobel Fizik Ödülü'nü kazanmıştır?",
+            "4. Hangi ünlü ressam 'Yıldızlı Gece' tablosunu yapmıştır?",
+            "5. Edebiyat tarihinde 'Divan-i Hikmet' adlı eseri ile tanınan kimdir?",
+            "6. En hızlı hayvan hangisidir?",
+            "7. Hangi element doğada tek başına diğer elementlerle bileşik yapmaz?",
+            "8. Tarihteki ilk bilinen yazılı eser hangisidir?",
+            "9. Hangi ülkenin bayrağında sadece bir renk vardır?",
+            "10. İnsan vücudundaki en büyük iç organ hangisidir?"
+        };
 
         string[][] cevaplar = {
-        new string[] {"A) Mars", "B) Jupiter", "C) Venus", "D) Neptune"},
-        new string[] {"A) Mercury", "B) Hydrogen", "C) Silver", "D) Lead"},
-        new string[] {"A) 1915", "B) 1921", "C) 1927", "D) 1935"},
-        new string[] {"A) Leonardo da Vinci", "B) Michelangelo", "C) Vincent van Gogh", "D) Pablo Picasso"},
-        new string[] {"A) Yunus Emre", "B) Mevlana", "C) Hafez", "D) Fuzuli"},
-        new string[] {"A) Cheetah", "B) Leopard", "C) Eagle", "D) Cheetah"},
-        new string[] {"A) Oxygen", "B) Nitrogen", "C) Gold", "D) Radium"},
-        new string[] {"A) Epic of Gilgamesh", "B) Iliad", "C) Mahabharata", "D) Oedipus Rex"},
-        new string[] {"A) Libya", "B) Monaco", "C) Maldives", "D) Jamaica"},
-        new string[] {"A) Heart", "B) Liver", "C) Lung", "D) Brain"}
-    };
-
+            new string[] {"A) Mars", "B) Jupiter", "C) Venus", "D) Neptune"},
+            new string[] {"A) Mercury", "B) Hydrogen", "C) Silver", "D) Lead"},
+            new string[] {"A) 1915", "B) 1921", "C) 1927", "D) 1935"},
+            new string[] {"A) Leonardo da Vinci", "B) Michelangelo", "C) Vincent van Gogh", "D) Pablo Picasso"},
+            new string[] {"A) Yunus Emre", "B) Mevlana", "C) Hafez", "D) Fuzuli"},
+            new string[] {"A) Cheetah", "B) Leopard", "C) Eagle", "D) Cheetah"},
+            new string[] {"A) Oxygen", "B) Nitrogen", "C) Gold", "D) Radium"},
+            new string[] {"A) Epic of Gilgamesh", "B) Iliad", "C) Mahabharata", "D) Oedipus Rex"},
+            new string[] {"A) Libya", "B) Monaco", "C) Maldives", "D) Jamaica"},
+            new string[] {"A) Heart", "B) Liver", "C) Lung", "D) Brain"}
+        };
 
         string[] dogruCevaplar = {"B", "A", "C", "C", "B", "B", "A", "A", "B", "B"};
 
@@ -93,6 +92,15 @@ class MilyonerUygulamasi
                     {
                         barajPuan2 = puan; // Baraj sorusunu dogru bildiyse kazandigi parayi baraj puanina esitle
                         Console.WriteLine($"Tebrikler! {barajSoru2}. soruyu dogru bildiniz ve {barajPuan2} TL kazandiniz.");
+                    }
+
+                    Console.Write("Devam etmek istiyor musunuz? (Evet/Hayir): ");
+                    string devamEt = Console.ReadLine().ToLower();
+
+                    if (devamEt != "evet")
+                    {
+                        Console.WriteLine($"Yarisma sona erdi. Kazandiniz tutar: {puan} TL");
+                        break;
                     }
                 }
             }
