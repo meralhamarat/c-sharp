@@ -19,68 +19,68 @@ class Program
         int dogruSayisi = 0;
 
         // Soru 1
-        Console.WriteLine("Soru 1: 12 + 7 kaçtır?");
-        int soru1Cevap = Convert.ToInt32(Console.ReadLine());
-        if (soru1Cevap == 19)
+        Console.WriteLine("Soru 1: √144 kaçtır?");
+        double soru1Cevap = Convert.ToDouble(Console.ReadLine());
+        if (Math.Abs(soru1Cevap - 12) < 0.001)
         {
             Console.WriteLine("Doğru!");
             dogruSayisi++;
         }
         else
         {
-            Console.WriteLine("Yanlış. Doğru cevap: 19");
+            Console.WriteLine("Yanlış. Doğru cevap: 12");
         }
 
         // Soru 2
-        Console.WriteLine("\nSoru 2: 8 x 6 kaçtır?");
-        int soru2Cevap = Convert.ToInt32(Console.ReadLine());
-        if (soru2Cevap == 48)
+        Console.WriteLine("\nSoru 2: log₂8 kaçtır?");
+        double soru2Cevap = Convert.ToDouble(Console.ReadLine());
+        if (Math.Abs(soru2Cevap - 3) < 0.001)
         {
             Console.WriteLine("Doğru!");
             dogruSayisi++;
         }
         else
         {
-            Console.WriteLine("Yanlış. Doğru cevap: 48");
+            Console.WriteLine("Yanlış. Doğru cevap: 3");
         }
 
         // Soru 3
-        Console.WriteLine("\nSoru 3: 20 - 9 kaçtır?");
+        Console.WriteLine("\nSoru 3: (2^3) x (3^2) kaçtır?");
         int soru3Cevap = Convert.ToInt32(Console.ReadLine());
-        if (soru3Cevap == 11)
+        if (soru3Cevap == 72)
         {
             Console.WriteLine("Doğru!");
             dogruSayisi++;
         }
         else
         {
-            Console.WriteLine("Yanlış. Doğru cevap: 11");
+            Console.WriteLine("Yanlış. Doğru cevap: 72");
         }
 
         // Soru 4
-        Console.WriteLine("\nSoru 4: 15 / 3 kaçtır?");
+        Console.WriteLine("\nSoru 4: 5! (5 faktöriyel) kaçtır?");
         int soru4Cevap = Convert.ToInt32(Console.ReadLine());
-        if (soru4Cevap == 5)
+        if (soru4Cevap == 120)
         {
             Console.WriteLine("Doğru!");
             dogruSayisi++;
         }
         else
         {
-            Console.WriteLine("Yanlış. Doğru cevap: 5");
+            Console.WriteLine("Yanlış. Doğru cevap: 120");
         }
 
         // Soru 5
-        Console.WriteLine("\nSoru 5: 3^2 kaçtır?");
+        Console.WriteLine("\nSoru 5: 2^4 - 2^3 + 2^2 - 2^1 kaçtır?");
         int soru5Cevap = Convert.ToInt32(Console.ReadLine());
-        if (soru5Cevap == 9)
+        if (soru5Cevap == 6)
         {
             Console.WriteLine("Doğru!");
             dogruSayisi++;
         }
         else
         {
-            Console.WriteLine("Yanlış. Doğru cevap: 9");
+            Console.WriteLine("Yanlış. Doğru cevap: 6");
         }
 
         // Test sonuçlarını göster
