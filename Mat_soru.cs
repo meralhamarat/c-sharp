@@ -18,6 +18,7 @@ class Program
 
         int dogruSayisi = 0;
 
+        // Soru 1
         Console.WriteLine("Soru 1: √144 kaçtır?");
         double soru1Cevap = Convert.ToDouble(Console.ReadLine());
         if (Math.Abs(soru1Cevap - 12) < 0.001)
@@ -30,6 +31,7 @@ class Program
             Console.WriteLine("Yanlış. Doğru cevap: 12");
         }
 
+        // Soru 2
         Console.WriteLine("\nSoru 2: log₂8 kaçtır?");
         double soru2Cevap = Convert.ToDouble(Console.ReadLine());
         if (Math.Abs(soru2Cevap - 3) < 0.001)
