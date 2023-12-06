@@ -22,7 +22,10 @@ class Program
             new Student("Ayşe", "Fizik", 85),
             new Student("Mehmet", "Kimya", 78),
             new Student("Zeynep", "Biyoloji", 95),
-            new Student("Can", "Matematik", 88)
+            new Student("Can", "Matematik", 88),
+            new Student("Elif", "Tarih", 92),
+            new Student("Burak", "Matematik", 75),
+            new Student("Deniz", "Fizik", 80)
         };
 
         // Tüm öğrencileri ekrana yazdıralım
@@ -78,3 +81,4 @@ class Program
         }
     }
 }
+
