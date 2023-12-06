@@ -44,6 +44,8 @@ class Program
             Console.WriteLine(student);
         }
 
+        
+
         // Not ortalamasını hesaplayalım
         double averageGrade = students.Average(s => s.Grade);
 
