@@ -8,7 +8,6 @@
 /* ************************************************************************** */
 
 using System;
-
 using System.Collections.Generic;
 
 class Araba
@@ -46,9 +45,21 @@ class Program
         Console.WriteLine("Araba Galerisi");
         Console.WriteLine("---------------");
 
-        foreach (var araba in arabalar)
+        // Kullanıcıdan araç modelini seçmesini iste
+        Console.Write("Hangi araç modelini istiyorsunuz? (Örneğin: Corolla, Rav4, Yaris, Civic, CR-V, Fit): ");
+        string kullaniciModel = Console.ReadLine();
+
+        // Seçilen modelle eşleşen arabayı bul
+        Araba secilenAraba = arabalar.Find(araba => araba.Model.Equals(kullaniciModel, StringComparison.OrdinalIgnoreCase));
+
+        if (secilenAraba != null)
         {
-            Console.WriteLine($"{araba.Marka} {araba.Model} ({araba.GovdeTipi}) - Fiyat: {araba.Fiyat:C}, Taksit Sayısı: {araba.TaksitSayisi} ay");
+            Console.WriteLine($"Seçilen Araç: {secilenAraba.Marka} {secilenAraba.Model} ({secilenAraba.GovdeTipi})");
+            Console.WriteLine($"Fiyat: {secilenAraba.Fiyat:C}, Taksit Sayısı: {secilenAraba.TaksitSayisi} ay");
+        }
+        else
+        {
+            Console.WriteLine("Geçersiz araç modeli seçildi.");
         }
 
         Console.ReadLine();
