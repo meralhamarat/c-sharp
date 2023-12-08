@@ -17,7 +17,7 @@ class Program
 
         do
         {
-            Console.Write("Dairenin yarıçapını girin: ");
+            Console.Write("Dairenin yarıçapını girin:  ");
             string input = Console.ReadLine();
 
             if (double.TryParse(input, out radius) && radius > 0)
