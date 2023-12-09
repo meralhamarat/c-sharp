@@ -20,12 +20,15 @@ class FutbolOyuncusu
 
     public void BilgileriYazdir()
     {
+        Console.WriteLine("************************************");
+        Console.WriteLine("********** Futbolcu Kartı **********");
+        Console.WriteLine("************************************");
         Console.WriteLine($"Oyuncu Adı: {Ad}");
         Console.WriteLine($"Takım: {Takim}");
         Console.WriteLine($"Pozisyon: {Pozisyon}");
         Console.WriteLine($"Hız: {Hiz}");
         Console.WriteLine($"Dayanıklılık: {Dayaniklilik}");
-        Console.WriteLine();
+        Console.WriteLine("************************************\n");
     }
 }
 
@@ -67,9 +70,7 @@ class FutbolKartiOyunu
                 Random random = new Random();
                 FutbolOyuncusu secilenOyuncu = futbolcular[random.Next(futbolcular.Count)];
 
-                Console.WriteLine("\n*************************");
-                Console.WriteLine("*** Futbolcu Kartınız ***");
-                Console.WriteLine("*************************");
+                Console.Clear(); // Ekranı temizle
                 secilenOyuncu.BilgileriYazdir();
             }
             else
@@ -79,3 +80,4 @@ class FutbolKartiOyunu
         }
     }
 }
+
