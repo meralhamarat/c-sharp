@@ -8,84 +8,83 @@
 /* ************************************************************************** */
 
 using System;
-
 using System.Collections.Generic;
 
-class FutbolOyuncusu
+class FootballPlayer
 {
-    public string Ad { get; set; }
-    public string Takim { get; set; }
-    public string Pozisyon { get; set; }
-    public int Hiz { get; set; }
-    public int Dayaniklilik { get; set; }
+    public string Name { get; set; }
+    public string Team { get; set; }
+    public string Position { get; set; }
+    public int Speed { get; set; }
+    public int Endurance { get; set; }
 
-    public FutbolOyuncusu(string ad, string takim, string pozisyon, int hiz, int dayaniklilik)
+    public FootballPlayer(string name, string team, string position, int speed, int endurance)
     {
-        Ad = ad;
-        Takim = takim;
-        Pozisyon = pozisyon;
-        Hiz = hiz;
-        Dayaniklilik = dayaniklilik;
+        Name = name;
+        Team = team;
+        Position = position;
+        Speed = speed;
+        Endurance = endurance;
     }
 
-    public void BilgileriYazdir()
+    public void PrintInfo()
     {
         Console.WriteLine("************************************");
-        Console.WriteLine("********** Futbolcu Kartı **********");
+        Console.WriteLine("********** Football Player Card **********");
         Console.WriteLine("************************************");
-        Console.WriteLine($"Oyuncu Adı: {Ad}");
-        Console.WriteLine($"Takım: {Takim}");
-        Console.WriteLine($"Pozisyon: {Pozisyon}");
-        Console.WriteLine($"Hız: {Hiz}");
-        Console.WriteLine($"Dayanıklılık: {Dayaniklilik}");
+        Console.WriteLine($"Player Name: {Name}");
+        Console.WriteLine($"Team: {Team}");
+        Console.WriteLine($"Position: {Position}");
+        Console.WriteLine($"Speed: {Speed}");
+        Console.WriteLine($"Endurance: {Endurance}");
         Console.WriteLine("************************************\n");
     }
 }
 
-class FutbolKartiOyunu
+class FootballCardGame
 {
     static void Main()
     {
-        List<FutbolOyuncusu> futbolcular = new List<FutbolOyuncusu>
+        List<FootballPlayer> players = new List<FootballPlayer>
         {
-            new FutbolOyuncusu("Lionel Messi", "Paris Saint-Germain", "Forvet", 90, 80),
-            new FutbolOyuncusu("Cristiano Ronaldo", "Manchester United", "Forvet", 88, 85),
-            new FutbolOyuncusu("Neymar", "Paris Saint-Germain", "Forvet", 92, 75),
-            new FutbolOyuncusu("Sergio Ramos", "Paris Saint-Germain", "Defans", 78, 88),
-            new FutbolOyuncusu("Kevin De Bruyne", "Manchester City", "Orta Saha", 86, 82),
-            new FutbolOyuncusu("Mohamed Salah", "Liverpool", "Forvet", 87, 79),
-            new FutbolOyuncusu("Arda Turan", "Galatasaray", "Orta Saha", 85, 75),
-            new FutbolOyuncusu("Burak Yılmaz", "Beşiktaş", "Forvet", 82, 77),
-            new FutbolOyuncusu("Hakan Çalhanoğlu", "AC Milan", "Orta Saha", 84, 78),
-            new FutbolOyuncusu("Merih Demiral", "Atalanta", "Defans", 80, 85),
-            new FutbolOyuncusu("Ozan Tufan", "Fenerbahçe", "Orta Saha", 79, 81),
-            new FutbolOyuncusu("Çağlar Söyüncü", "Leicester City", "Defans", 81, 83)
+            new FootballPlayer("Lionel Messi", "Paris Saint-Germain", "Forward", 90, 80),
+            new FootballPlayer("Cristiano Ronaldo", "Manchester United", "Forward", 88, 85),
+            new FootballPlayer("Neymar", "Paris Saint-Germain", "Forward", 92, 75),
+            new FootballPlayer("Sergio Ramos", "Paris Saint-Germain", "Defender", 78, 88),
+            new FootballPlayer("Kevin De Bruyne", "Manchester City", "Midfielder", 86, 82),
+            new FootballPlayer("Mohamed Salah", "Liverpool", "Forward", 87, 79),
+            new FootballPlayer("Arda Turan", "Galatasaray", "Midfielder", 85, 75),
+            new FootballPlayer("Burak Yılmaz", "Beşiktaş", "Forward", 82, 77),
+            new FootballPlayer("Hakan Çalhanoğlu", "AC Milan", "Midfielder", 84, 78),
+            new FootballPlayer("Merih Demiral", "Atalanta", "Defender", 80, 85),
+            new FootballPlayer("Ozan Tufan", "Fenerbahçe", "Midfielder", 79, 81),
+            new FootballPlayer("Çağlar Söyüncü", "Leicester City", "Defender", 81, 83)
         };
 
-        Console.WriteLine("Futbol Kartı Oyununa Hoş Geldiniz!");
+        Console.WriteLine("Welcome to the Football Card Game!");
 
         while (true)
         {
-            Console.WriteLine("\nLütfen bir kart seçin (1-6) ya da çıkmak için '0' tuşuna basın:");
-            string giris = Console.ReadLine();
+            Console.WriteLine("\nPlease choose a card (1-6) or press '0' to exit:");
+            string input = Console.ReadLine();
 
-            if (giris == "0")
+            if (input == "0")
             {
-                Console.WriteLine("Oyunu bitirdiniz. İyi günler!");
+                Console.WriteLine("You have ended the game. Have a nice day!");
                 break;
             }
 
-            if (int.TryParse(giris, out int secim) && secim >= 1 && secim <= 6)
+            if (int.TryParse(input, out int choice) && choice >= 1 && choice <= 6)
             {
                 Random random = new Random();
-                FutbolOyuncusu secilenOyuncu = futbolcular[random.Next(futbolcular.Count)];
+                FootballPlayer selectedPlayer = players[random.Next(players.Count)];
 
-                Console.Clear(); // Ekranı temizle
-                secilenOyuncu.BilgileriYazdir();
+                Console.Clear(); // Clear the screen
+                selectedPlayer.PrintInfo();
             }
             else
             {
-                Console.WriteLine("Geçersiz giriş! Lütfen 1 ile 6 arasında bir sayı girin veya '0' tuşuna basarak çıkın.");
+                Console.WriteLine("Invalid input! Please enter a number between 1 and 6 or press '0' to exit.");
             }
         }
     }
