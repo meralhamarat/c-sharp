@@ -1,4 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   Futbolcu_Karti.cs                                                        */
+/*                                                                            */
+/*   By: meralhamarat24@gmail.com                                             */
+/*                                                                            */
+/* ************************************************************************** */
+
 using System;
+
 using System.Collections.Generic;
 
 class FutbolOyuncusu
@@ -80,4 +90,3 @@ class FutbolKartiOyunu
         }
     }
 }
-
