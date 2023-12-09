@@ -29,7 +29,7 @@ class FutbolOyuncusu
     }
 }
 
-class Program
+class FutbolKartiOyunu
 {
     static void Main()
     {
@@ -49,11 +49,33 @@ class Program
             new FutbolOyuncusu("Çağlar Söyüncü", "Leicester City", "Defans", 81, 83)
         };
 
-        foreach (var oyuncu in futbolcular)
-        {
-            oyuncu.BilgileriYazdir();
-        }
+        Console.WriteLine("Futbol Kartı Oyununa Hoş Geldiniz!");
 
-        Console.ReadLine();
+        while (true)
+        {
+            Console.WriteLine("\nLütfen bir kart seçin (1-6) ya da çıkmak için '0' tuşuna basın:");
+            string giris = Console.ReadLine();
+
+            if (giris == "0")
+            {
+                Console.WriteLine("Oyunu bitirdiniz. İyi günler!");
+                break;
+            }
+
+            if (int.TryParse(giris, out int secim) && secim >= 1 && secim <= 6)
+            {
+                Random random = new Random();
+                FutbolOyuncusu secilenOyuncu = futbolcular[random.Next(futbolcular.Count)];
+
+                Console.WriteLine("\n*************************");
+                Console.WriteLine("*** Futbolcu Kartınız ***");
+                Console.WriteLine("*************************");
+                secilenOyuncu.BilgileriYazdir();
+            }
+            else
+            {
+                Console.WriteLine("Geçersiz giriş! Lütfen 1 ile 6 arasında bir sayı girin veya '0' tuşuna basarak çıkın.");
+            }
+        }
     }
 }
