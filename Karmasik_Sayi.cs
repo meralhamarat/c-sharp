@@ -27,9 +27,9 @@ public class KarmasikSayi
     }
 
     // Property
-    public string Yazdir
+    public override string ToString()
     {
-        get { return x + "i" + (y >= 0 ? "+" : "") + y; }
+        return $"{x}i{(y >= 0 ? "+" : "")}{y}";
     }
 
     // İki karmaşık sayıyı çıkarma
@@ -83,5 +83,70 @@ public class KarmasikSayi
     public static bool operator !=(KarmasikSayi c1, KarmasikSayi c2)
     {
         return !(c1 == c2);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hoş geldiniz! Karmaşık Sayılarla İşlem Yapma Programına Hoş Geldiniz!");
+
+        // Karmaşık sayı nesneleri oluşturuluyor
+        KarmasikSayi sayi1 = new KarmasikSayi(3, 4);
+        KarmasikSayi sayi2 = new KarmasikSayi(1, 2);
+
+        while (true)
+        {
+            // Menü gösteriliyor
+            Console.WriteLine("\nLütfen bir işlem seçin:");
+            Console.WriteLine("1. Karmaşık Sayıları Topla");
+            Console.WriteLine("2. Karmaşık Sayıları Çıkar");
+            Console.WriteLine("3. Karmaşık Sayıyı Skalerle Çarp");
+            Console.WriteLine("4. Karmaşık Sayıyı Skalerle Böl");
+            Console.WriteLine("5. Çıkış");
+
+            // Kullanıcının seçimini al
+            int secim = Convert.ToInt32(Console.ReadLine());
+
+            // Seçime göre işlem yap
+            switch (secim)
+            {
+                case 1:
+                    Console.WriteLine($"Toplama: {sayi1} + {sayi2} = {sayi1 + sayi2}");
+                    break;
+
+                case 2:
+                    Console.WriteLine($"Çıkarma: {sayi1} - {sayi2} = {sayi1 - sayi2}");
+                    break;
+
+                case 3:
+                    Console.WriteLine("Lütfen bir skaler girin:");
+                    int skalerCarpim = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine($"Skaler Çarpma: {sayi1} * {skalerCarpim} = {sayi1 * skalerCarpim}");
+                    break;
+
+                case 4:
+                    Console.WriteLine("Lütfen bir bölen skaler girin:");
+                    int skalerBolme = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        Console.WriteLine($"Skaler Bölme: {sayi1} / {skalerBolme} = {sayi1 / skalerBolme}");
+                    }
+                    catch (DivideByZeroException ex)
+                    {
+                        Console.WriteLine($"Hata: {ex.Message}");
+                    }
+                    break;
+
+                case 5:
+                    Console.WriteLine("Programdan çıkılıyor. İyi günler!");
+                    return;
+
+                default:
+                    Console.WriteLine("Geçersiz bir seçim yaptınız. Lütfen tekrar deneyin.");
+                    break;
+            }
+        }
     }
 }
