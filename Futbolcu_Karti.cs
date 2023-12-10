@@ -18,8 +18,9 @@ class FootballPlayer
     public int Speed { get; set; }
     public int Endurance { get; set; }
     public bool IsTurkish { get; set; }
+    public double Salary { get; set; }
 
-    public FootballPlayer(string name, string team, string position, int speed, int endurance, bool isTurkish)
+    public FootballPlayer(string name, string team, string position, int speed, int endurance, bool isTurkish, double salary)
     {
         Name = name;
         Team = team;
@@ -27,6 +28,7 @@ class FootballPlayer
         Speed = speed;
         Endurance = endurance;
         IsTurkish = isTurkish;
+        Salary = salary;
     }
 
     public void PrintInfo()
@@ -42,6 +44,7 @@ class FootballPlayer
         Console.WriteLine($"Position: {Position}");
         Console.WriteLine($"Speed: {Speed}");
         Console.WriteLine($"Endurance: {Endurance}");
+        Console.WriteLine($"Salary: ${Salary:N2} million per year");
         Console.WriteLine("************************************\n");
     }
 }
@@ -52,22 +55,22 @@ class FootballCardGame
     {
         List<FootballPlayer> turkishPlayers = new List<FootballPlayer>
         {
-            new FootballPlayer("Arda Turan", "Galatasaray", "Midfielder", 85, 75, true),
-            new FootballPlayer("Burak Yılmaz", "Beşiktaş", "Forward", 82, 77, true),
-            new FootballPlayer("Hakan Çalhanoğlu", "AC Milan", "Midfielder", 84, 78, true),
-            new FootballPlayer("Merih Demiral", "Atalanta", "Defender", 80, 85, true),
-            new FootballPlayer("Ozan Tufan", "Fenerbahçe", "Midfielder", 79, 81, true),
-            new FootballPlayer("Çağlar Söyüncü", "Leicester City", "Defender", 81, 83, true)
+            new FootballPlayer("Arda Turan", "Galatasaray", "Midfielder", 85, 75, true, 3.5),
+            new FootballPlayer("Burak Yılmaz", "Beşiktaş", "Forward", 82, 77, true, 4.2),
+            new FootballPlayer("Hakan Çalhanoğlu", "AC Milan", "Midfielder", 84, 78, true, 5.8),
+            new FootballPlayer("Merih Demiral", "Atalanta", "Defender", 80, 85, true, 4.9),
+            new FootballPlayer("Ozan Tufan", "Fenerbahçe", "Midfielder", 79, 81, true, 2.5),
+            new FootballPlayer("Çağlar Söyüncü", "Leicester City", "Defender", 81, 83, true, 6.3)
         };
 
         List<FootballPlayer> foreignPlayers = new List<FootballPlayer>
         {
-            new FootballPlayer("Lionel Messi", "Paris Saint-Germain", "Forward", 90, 80, false),
-            new FootballPlayer("Cristiano Ronaldo", "Manchester United", "Forward", 88, 85, false),
-            new FootballPlayer("Neymar", "Paris Saint-Germain", "Forward", 92, 75, false),
-            new FootballPlayer("Sergio Ramos", "Paris Saint-Germain", "Defender", 78, 88, false),
-            new FootballPlayer("Kevin De Bruyne", "Manchester City", "Midfielder", 86, 82, false),
-            new FootballPlayer("Mohamed Salah", "Liverpool", "Forward", 87, 79, false)
+            new FootballPlayer("Lionel Messi", "Paris Saint-Germain", "Forward", 90, 80, false, 80),
+            new FootballPlayer("Cristiano Ronaldo", "Manchester United", "Forward", 88, 85, false, 60),
+            new FootballPlayer("Neymar", "Paris Saint-Germain", "Forward", 92, 75, false, 70),
+            new FootballPlayer("Sergio Ramos", "Paris Saint-Germain", "Defender", 78, 88, false, 40),
+            new FootballPlayer("Kevin De Bruyne", "Manchester City", "Midfielder", 86, 82, false, 65),
+            new FootballPlayer("Mohamed Salah", "Liverpool", "Forward", 87, 79, false, 50)
         };
 
         Console.WriteLine("Welcome to the Football Card Game!");
