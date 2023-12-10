@@ -84,6 +84,22 @@ public class KarmasikSayi
     {
         return !(c1 == c2);
     }
+
+    // Object.Equals metodunu geçersiz kılma
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+            return false;
+
+        KarmasikSayi other = (KarmasikSayi)obj;
+        return this.x == other.x && this.y == other.y;
+    }
+
+    // Object.GetHashCode metodunu geçersiz kılma
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(x, y);
+    }
 }
 
 class Program
