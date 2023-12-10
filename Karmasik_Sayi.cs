@@ -90,7 +90,11 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Hoş geldiniz! Karmaşık Sayılarla İşlem Yapma Programına Hoş Geldiniz!");
+        Console.WriteLine("************************************");
+        Console.WriteLine("****** Karmaşık Sayı Programı ******");
+        Console.WriteLine("************************************");
+        Console.WriteLine("Hoş geldiniz! Bu programda karmaşık sayılarla işlemler yapabilirsiniz.");
+        Console.WriteLine("Lütfen aşağıdaki seçeneklerden birini belirleyerek işlemlere başlayın.\n");
 
         // Karmaşık sayı nesneleri oluşturuluyor
         KarmasikSayi sayi1 = new KarmasikSayi(3, 4);
