@@ -89,11 +89,11 @@ class FootballCardGame
 
                 if (choice % 2 == 1)
                 {
-                    PrintTwoPlayers(turkishPlayers);
+                    PrintOneTurkishOneForeign(turkishPlayers, foreignPlayers);
                 }
                 else
                 {
-                    PrintTwoPlayers(foreignPlayers);
+                    PrintOneTurkishOneForeign(foreignPlayers, turkishPlayers);
                 }
             }
             else
@@ -103,17 +103,12 @@ class FootballCardGame
         }
     }
 
-    static void PrintTwoPlayers(List<FootballPlayer> players)
+    static void PrintOneTurkishOneForeign(List<FootballPlayer> turkishPlayers, List<FootballPlayer> foreignPlayers)
     {
         Random random = new Random();
 
-        FootballPlayer turkishPlayer = players[random.Next(players.Count)];
-        FootballPlayer foreignPlayer = players[random.Next(players.Count)];
-
-        while (turkishPlayer == foreignPlayer)
-        {
-            foreignPlayer = players[random.Next(players.Count)];
-        }
+        FootballPlayer turkishPlayer = turkishPlayers[random.Next(turkishPlayers.Count)];
+        FootballPlayer foreignPlayer = foreignPlayers[random.Next(foreignPlayers.Count)];
 
         turkishPlayer.PrintInfo();
         foreignPlayer.PrintInfo();
