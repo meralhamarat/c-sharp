@@ -72,14 +72,14 @@ class Program
         // Soru 5
         Console.WriteLine("\nSoru 5: 2^4 - 2^3 + 2^2 - 2^1 kaçtır?");
         int soru5Cevap = Convert.ToInt32(Console.ReadLine());
-        if (soru5Cevap == 6)
+        if (soru5Cevap == 10)
         {
             Console.WriteLine("Doğru!");
             dogruSayisi++;
         }
         else
         {
-            Console.WriteLine("Yanlış. Doğru cevap: 6");
+            Console.WriteLine("Yanlış. Doğru cevap: 10");
         }
 
         // Test sonuçlarını göster
