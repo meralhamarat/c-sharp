@@ -1,5 +1,14 @@
 // Aşağıdaki C# kodu, kullanıcıdan başlangıç tarihini ve gün sayısını alır, ardından belirtilen gün sayısı kadar gün ekleyerek yeni tarihi hesaplar ve ekrana yazdırır.
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   Tarih_Hesaplama.cs                                                       */
+/*                                                                            */
+/*   By: meralhamarat24@gmail.com                                             */
+/*                                                                            */
+/* ************************************************************************** */
+
 using System;
 
 class Program
