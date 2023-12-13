@@ -1,3 +1,4 @@
+// Aşağıdaki kod kullanıcıdan bir yarıçap değeri girilmesini ve girilen yarıçap değeriyle alan ve çevre hesaplamalarının yapılmasını sağlar.
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
