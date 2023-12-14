@@ -13,9 +13,16 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Adam Asmaca Oyunu");
+        Console.WriteLine("Adam Asmaca Oyunu'na Hosgeldiniz!");
+        Console.WriteLine("  +---+");
+        Console.WriteLine("  |   |");
+        Console.WriteLine("      |");
+        Console.WriteLine("      |");
+        Console.WriteLine("      |");
+        Console.WriteLine("      |");
+        Console.WriteLine("=========");
 
-        string[] kelimeler = { "elma", "portakal", "kalem", "kitap", "masa" };
+        string[] kelimeler = { "greyfurt", "avokado", "mandalina", "bilgisayar", "program" };
         Random random = new Random();
         string secilenKelime = kelimeler[random.Next(0, kelimeler.Length)];
 
