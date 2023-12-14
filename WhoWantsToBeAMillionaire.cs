@@ -38,17 +38,18 @@ class MilyonerUygulamasi
             "10. İnsan vücudundaki en büyük iç organ hangisidir?"
         };
 
-        string[][] cevaplar = {
-            new string[] {"A) Mars", "B) Jupiter", "C) Venus", "D) Neptune"},
-            new string[] {"A) Mercury", "B) Hydrogen", "C) Silver", "D) Lead"},
+        string[][] cevaplar = 
+        {
+            new string[] {"A) Mars", "B) Jüpiter", "C) Venüs", "D) Neptün"},
+            new string[] {"A) Cıva", "B) Hidrojen", "C) Gümüş", "D) Kurşun"},
             new string[] {"A) 1915", "B) 1921", "C) 1927", "D) 1935"},
             new string[] {"A) Leonardo da Vinci", "B) Michelangelo", "C) Vincent van Gogh", "D) Pablo Picasso"},
             new string[] {"A) Yunus Emre", "B) Mevlana", "C) Hafez", "D) Fuzuli"},
-            new string[] {"A) Cheetah", "B) Leopard", "C) Eagle", "D) Cheetah"},
-            new string[] {"A) Oxygen", "B) Nitrogen", "C) Gold", "D) Radium"},
-            new string[] {"A) Epic of Gilgamesh", "B) Iliad", "C) Mahabharata", "D) Oedipus Rex"},
-            new string[] {"A) Libya", "B) Monaco", "C) Maldives", "D) Jamaica"},
-            new string[] {"A) Heart", "B) Liver", "C) Lung", "D) Brain"}
+            new string[] {"A) Çita", "B) Leopar", "C) Kartal", "D) Çita"},
+            new string[] {"A) Oksijen", "B) Azot", "C) Altın", "D) Radyum"},
+            new string[] {"A) Gilgamesh Destanı", "B) İlyada", "C) Mahabharata", "D) Oedipus Rex"},
+            new string[] {"A) Libya", "B) Monako", "C) Maldivler", "D) Jamaika"},
+            new string[] {"A) Kalp", "B) Karaciğer", "C) Akciğer", "D) Beyin"}
         };
 
         string[] dogruCevaplar = {"B", "A", "C", "C", "B", "B", "A", "A", "B", "B"};
