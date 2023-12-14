@@ -35,41 +35,40 @@ class Program
         int kalanCan = 6;
 
         while (kalanCan > 0)
+{
+    Console.WriteLine($"Kelime: {string.Join(" ", dogruTahminler)}");
+    Console.WriteLine($"Kalan Can: {kalanCan}");
+
+    Console.Write("Bir harf girin: ");
+    char tahmin = Char.ToLower(Console.ReadLine()[0]); // Küçük harfe çevirme
+
+    if (secilenKelime.Contains(tahmin))
+    {
+        for (int i = 0; i < secilenKelime.Length; i++)
         {
-            Console.WriteLine($"Kelime: {string.Join(" ", dogruTahminler)}");
-            Console.WriteLine($"Kalan Can: {kalanCan}");
-
-            Console.Write("Bir harf girin: ");
-            char tahmin = Char.ToLower(Console.ReadLine()[0]); // Küçük harfe çevirme
-
-            if (secilenKelime.Contains(tahmin))
+            if (secilenKelime[i] == tahmin)
             {
-                for (int i = 0; i < secilenKelime.Length; i++)
-                {
-                    if (secilenKelime[i] == tahmin)
-                    {
-                        dogruTahminler[i] = tahmin;
-                    }
-                }
-
-                if (!dogruTahminler.Contains('_'))
-                {
-                    Console.WriteLine("Tebrikler, kelimeyi doğru tahmin ettiniz!");
-                    break;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Hatalı tahmin, bir can kaybettiniz.");
-                kalanCan--;
+                dogruTahminler[i] = tahmin;
             }
         }
 
-        if (kalanCan == 0)
+        if (!dogruTahminler.Contains('_'))
         {
-            Console.WriteLine($"Üzgünüm, canlarınız tükendi. Doğru kelime: {secilenKelime}");
+            Console.WriteLine("Tebrikler, kelimeyi doğru tahmin ettiniz!");
+            break;
         }
+    }
+    else
+    {
+        Console.WriteLine("Hatalı tahmin, bir can kaybettiniz.");
+        kalanCan--;
+    }
 
-        Console.ReadLine();
+    if (Array.IndexOf(dogruTahminler, '_') == -1)
+    {
+        Console.Clear();
+        DrawHangman(kalanCan);
+        Console.WriteLine("Tebrikler, kelimeyi doğru tahmin ettiniz!");
+        break;
     }
 }
