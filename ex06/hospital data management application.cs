@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +57,7 @@ public class LinkedList<T> : IEnumerable<T>
         public bool MoveNext()
         {
             _currentNode = _currentNode?.Next;
-            return _currentNode != null;
+            return _currentNode != null && _currentNode != _head;
         }
 
         public void Reset()
@@ -120,44 +120,41 @@ class Program
 
         var medicineList = new LinkedList<Medicine>
         {
-                new Medicine { ID = 46573806740, Name = "Theraflu Forte" },
-                new Medicine { ID = 46573806740, Name = "Ketober %1.6 Gargara" },
-                new Medicine { ID = 46573806740, Name = "Theraflu Forte" },
-                new Medicine { ID = 46573806740, Name = "Ketober %1.6 Gargara" },
-                new Medicine { ID = 46573806740, Name = "Aferin Sinüs" },
-                new Medicine { ID = 23746982347, Name = "Paraflex 20 Komprime" },
-                new Medicine { ID = 23746982347, Name = "Sul jel %3 30 gr Jel" },
-                new Medicine { ID = 23746982347, Name = "Edolar 500 mg 14 ftb" },
-                new Medicine { ID = 89374938243, Name = "Laksafenol" },
-                new Medicine { ID = 89374938243, Name = "Axeparin" },
-                new Medicine { ID = 89374938243, Name = "Cynacal" },
-                new Medicine { ID = 98723424674, Name = "BlefariTTO Göz Jeli 20 ml" },
-                new Medicine { ID = 98723424674, Name = "LOTEBRA %0.5 + %0.3 göz damlası" },
-                new Medicine { ID = 98723424674, Name = "TERRAMYCIN 5 mg/ 10.000 IU göz merhemi" }
-            };
+            new Medicine { ID = 46573806740, Name = "Theraflu Forte" },
+            new Medicine { ID = 46573806740, Name = "Ketober %1.6 Gargara" },
+            new Medicine { ID = 46573806740, Name = "Aferin Sinüs" },
+            new Medicine { ID = 23746982347, Name = "Paraflex 20 Komprime" },
+            new Medicine { ID = 23746982347, Name = "Sul jel %3 30 gr Jel" },
+            new Medicine { ID = 23746982347, Name = "Edolar 500 mg 14 ftb" },
+            new Medicine { ID = 89374938243, Name = "Laksafenol" },
+            new Medicine { ID = 89374938243, Name = "Axeparin" },
+            new Medicine { ID = 89374938243, Name = "Cynacal" },
+            new Medicine { ID = 98723424674, Name = "BlefariTTO Göz Jeli 20 ml" },
+            new Medicine { ID = 98723424674, Name = "LOTEBRA %0.5 + %0.3 göz damlası" },
+            new Medicine { ID = 98723424674, Name = "TERRAMYCIN 5 mg/ 10.000 IU göz merhemi" }
+        };
 
-            var doctorList = new LinkedList<Doctor>
-            {
-                new Doctor { ID = 46573806740, Name = "Dr. Ömer Kaplan", Specialty = "Ear, Nose, Throat" },
-                new Doctor { ID = 23746982347, Name = "Dr. Ali Nazmican Güröz", Specialty = "Orthopedics" },
-                new Doctor { ID = 89374938243, Name = "Dr. Bekir Borazan", Specialty = "Internal Medicine" },
-                new Doctor { ID = 98723424674, Name = "Dr. Pınar İnan", Specialty = "Ophthalmology" }
-            };
+        var doctorList = new LinkedList<Doctor>
+        {
+            new Doctor { ID = 46573806740, Name = "Dr. Ömer Kaplan", Specialty = "Ear, Nose, Throat" },
+            new Doctor { ID = 23746982347, Name = "Dr. Ali Nazmican Güröz", Specialty = "Orthopedics" },
+            new Doctor { ID = 89374938243, Name = "Dr. Bekir Borazan", Specialty = "Internal Medicine" },
+            new Doctor { ID = 98723424674, Name = "Dr. Pınar İnan", Specialty = "Ophthalmology" }
+        };
 
-            var diseaseList = new LinkedList<Disease>
-            {
-                new Disease { ID = 46573806740, Name = "Nezle" };
-                new Disease { ID = 46573806740, Name = "Farenjit" };
-                new Disease { ID = 46573806740, Name = "Sinüzit" };
-                new Disease { ID = 23746982347, Name = "Menisküs Yırtığı" };
-                new Disease { ID = 89374938243, Name = "Gastroenteroloji" };
-                new Disease { ID = 89374938243, Name = "Hematoloji" };
-                new Disease { ID = 89374938243, Name = "Nefroloji" };
-                new Disease { ID = 98723424674, Name = "Göz Enfeksiyonu" };
+        var diseaseList = new LinkedList<Disease>
+        {
+            new Disease { ID = 46573806740, Name = "Nezle" },
+            new Disease { ID = 46573806740, Name = "Farenjit" },
+            new Disease { ID = 46573806740, Name = "Sinüzit" },
+            new Disease { ID = 23746982347, Name = "Menisküs Yırtığı" },
+            new Disease { ID = 89374938243, Name = "Gastroenteroloji" },
+            new Disease { ID = 89374938243, Name = "Hematoloji" },
+            new Disease { ID = 89374938243, Name = "Nefroloji" },
+            new Disease { ID = 98723424674, Name = "Göz Enfeksiyonu" }
+        };
 
-            };
-
-            Console.WriteLine("\n...ID Query...");
+        Console.WriteLine("\n...ID Query...");
 
         Console.Write("Please enter the ID number: ");
         if (long.TryParse(Console.ReadLine(), out long ID))
