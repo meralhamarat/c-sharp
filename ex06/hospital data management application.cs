@@ -1,198 +1,197 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-
-public class Node<T>
+namespace sağlıkproje
 {
-    public T Data { get; set; }
-    public Node<T>? Previous { get; set; }
-    public Node<T>? Next { get; set; }
-}
-
-public class LinkedList<T> : IEnumerable<T>
-{
-    private class Node<T>
+    // Hasta sınıfı
+    public class Hasta
     {
-        public T Data { get; set; }
-        public Node<T>? Next { get; set; }
-        public override string ToString() => $"Data = [{Data}]";
-    }
+        public long? TC { get; set; }
+        public string Ad { get; set; }
+        public string Soyad { get; set; }
+        public Hasta? Onceki { get; set; }
+        public Hasta? Sonraki { get; set; }
+        public List<Ilac> AlmasıGerekenIlaclar { get; set; }
+        public List<Doktor> GittigiDoktor { get; set; }
+        public List<Hastalik> Hastaligi { get; set; }
 
-    private Node<T>? _head, _tail;
 
-    public void Add(T element)
-    {
-        var newNode = new Node<T> { Data = element };
-        if (_head == null)
+        public override string ToString()
         {
-            _head = newNode;
-            _tail = newNode;
-        }
-        else
-        {
-            _tail!.Next = newNode;
-            _tail = newNode;
+            return $"{TC}. {Ad} {Soyad}";
         }
     }
 
-    private struct LinkedListEnumerator : IEnumerator<T>
+
+    // Ilaç sınıfı
+    public class Ilac
     {
-        private Node<T>? _currentNode;
-        private readonly Node<T>? _head;
+        public long? TC { get; set; }
+        public string Ad { get; set; }
+        public Ilac? Onceki { get; set; }
+        public Ilac? Sonraki { get; set; }
 
-        public LinkedListEnumerator(Node<T>? head)
+        public override string ToString()
         {
-            _head = head;
-            _currentNode = new Node<T> { Data = default! };
-            _currentNode.Next = _head;
-        }
-
-        public T Current => _currentNode!.Data;
-
-        object? IEnumerator.Current => Current;
-
-        public void Dispose() { }
-
-        public bool MoveNext()
-        {
-            _currentNode = _currentNode?.Next;
-            return _currentNode != null;
-        }
-
-        public void Reset()
-        {
-            _currentNode = new Node<T> { Data = default! };
-            _currentNode.Next = _head;
+            return $"{TC}. {Ad}";
         }
     }
 
-    public IEnumerator<T> GetEnumerator() => new LinkedListEnumerator(_head);
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-}
-
-public class Patient
-{
-    public long ID { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-
-    public override string ToString() => $"{ID}. {FirstName} {LastName}";
-}
-
-public class Medicine
-{
-    public long ID { get; set; }
-    public string Name { get; set; }
-
-    public override string ToString() => $"{ID}. {Name}";
-}
-
-public class Doctor
-{
-    public long ID { get; set; }
-    public string Name { get; set; }
-    public string Specialty { get; set; }
-
-    public override string ToString() => $"{ID}. {Name} ({Specialty})";
-}
-
-public class Disease
-{
-    public long ID { get; set; }
-    public string Name { get; set; }
-
-    public override string ToString() => $"{ID}. {Name}";
-}
-
-class Program
-{
-    static void Main(string[] args)
+    // Doktor sınıfı
+    public class Doktor
     {
-        var patientList = new LinkedList<Patient>
+        public long TC { get; set; }
+        public string Ad { get; set; }
+        public string Brans { get; set; }
+        public Doktor? Onceki { get; set; }
+        public Doktor? Sonraki { get; set; }
+
+        public override string ToString()
         {
-            new Patient { ID = 46573806740, FirstName = "Hiranur", LastName = "Sazak" },
-            new Patient { ID = 23746982347, FirstName = "Nisa Nur", LastName = "Özdal" },
-            new Patient { ID = 89374938243, FirstName = "Nisa Gül", LastName = "Ünal" },
-            new Patient { ID = 98723424674, FirstName = "Berfin", LastName = "Geleş" }
-        };
+            return $"{TC}. {Ad} ({Brans})";
+        }
+    }
 
-        var medicineList = new LinkedList<Medicine>
+    // Hastalık sınıfı
+    public class Hastalik
+    {
+        public long TC { get; set; }
+        public string Ad { get; set; }
+        public Hastalik? Onceki { get; set; }
+        public Hastalik? Sonraki { get; set; }
+
+        public override string ToString()
         {
-                new Medicine { ID = 46573806740, Name = "Theraflu Forte" },
-                new Medicine { ID = 46573806740, Name = "Ketober %1.6 Gargara" },
-                new Medicine { ID = 46573806740, Name = "Theraflu Forte" },
-                new Medicine { ID = 46573806740, Name = "Ketober %1.6 Gargara" },
-                new Medicine { ID = 46573806740, Name = "Aferin Sinüs" },
-                new Medicine { ID = 23746982347, Name = "Paraflex 20 Komprime" },
-                new Medicine { ID = 23746982347, Name = "Sul jel %3 30 gr Jel" },
-                new Medicine { ID = 23746982347, Name = "Edolar 500 mg 14 ftb" },
-                new Medicine { ID = 89374938243, Name = "Laksafenol" },
-                new Medicine { ID = 89374938243, Name = "Axeparin" },
-                new Medicine { ID = 89374938243, Name = "Cynacal" },
-                new Medicine { ID = 98723424674, Name = "BlefariTTO Göz Jeli 20 ml" },
-                new Medicine { ID = 98723424674, Name = "LOTEBRA %0.5 + %0.3 göz damlası" },
-                new Medicine { ID = 98723424674, Name = "TERRAMYCIN 5 mg/ 10.000 IU göz merhemi" }
-            };
+            return $"{TC}. {Ad}";
+        }
+    }
 
-            var doctorList = new LinkedList<Doctor>
-            {
-                new Doctor { ID = 46573806740, Name = "Dr. Ömer Kaplan", Specialty = "Ear, Nose, Throat" },
-                new Doctor { ID = 23746982347, Name = "Dr. Ali Nazmican Güröz", Specialty = "Orthopedics" },
-                new Doctor { ID = 89374938243, Name = "Dr. Bekir Borazan", Specialty = "Internal Medicine" },
-                new Doctor { ID = 98723424674, Name = "Dr. Pınar İnan", Specialty = "Ophthalmology" }
-            };
+    // Çift bağlı dairesel liste sınıfı
+    public class Node<T>
+    {
+        public T? TC { get; set; }
+        public Node<T>? Onceki { get; set; }
+        public Node<T>? Sonraki { get; set; }
+    }
 
-            var diseaseList = new LinkedList<Disease>
-            {
-                new Disease { ID = 46573806740, Name = "Nezle" };
-                new Disease { ID = 46573806740, Name = "Farenjit" };
-                new Disease { ID = 46573806740, Name = "Sinüzit" };
-                new Disease { ID = 23746982347, Name = "Menisküs Yırtığı" };
-                new Disease { ID = 89374938243, Name = "Gastroenteroloji" };
-                new Disease { ID = 89374938243, Name = "Hematoloji" };
-                new Disease { ID = 89374938243, Name = "Nefroloji" };
-                new Disease { ID = 98723424674, Name = "Göz Enfeksiyonu" };
+    public class CiftBagliDaireselListe<T>
+    {
+        private Node<T>? Bas;
 
-            };
-
-            Console.WriteLine("\n...ID Query...");
-
-        Console.Write("Please enter the ID number: ");
-        if (long.TryParse(Console.ReadLine(), out long ID))
+        public void Ekle(T eleman)
         {
-            Patient? queriedPatient = patientList.FirstOrDefault(patient => patient.ID == ID);
-            Medicine? queriedMedicine = medicineList.FirstOrDefault(medicine => medicine.ID == ID);
-            Doctor? queriedDoctor = doctorList.FirstOrDefault(doctor => doctor.ID == ID);
-            Disease? queriedDisease = diseaseList.FirstOrDefault(disease => disease.ID == ID);
+            Node<T> newNode = new Node<T> { TC = eleman };
 
-            if (queriedPatient != null)
+            if (Bas == null)
             {
-                Console.WriteLine($"Patient Found: ID: {queriedPatient.ID}, First Name: {queriedPatient.FirstName}, Last Name: {queriedPatient.LastName}");
-            }
-            else if (queriedMedicine != null)
-            {
-                Console.WriteLine($"Medicine Found: ID: {queriedMedicine.ID}, Name: {queriedMedicine.Name}");
-            }
-            else if (queriedDoctor != null)
-            {
-                Console.WriteLine($"Doctor Found: ID: {queriedDoctor.ID}, Name: {queriedDoctor.Name}, Specialty: {queriedDoctor.Specialty}");
-            }
-            else if (queriedDisease != null)
-            {
-                Console.WriteLine($"Disease Found: ID: {queriedDisease.ID}, Name: {queriedDisease.Name}");
+                Bas = newNode;
+                Bas.Onceki = Bas;
+                Bas.Sonraki = Bas;
             }
             else
             {
-                Console.WriteLine("Item not found.");
+                newNode.Onceki = Bas.Onceki;
+                newNode.Sonraki = Bas;
+                Bas.Onceki!.Sonraki = newNode;
+                Bas.Onceki = newNode;
             }
         }
-        else
+
+        public T? KimlikleSorgula(Func<T, bool> sorgu)
         {
-            Console.WriteLine("Invalid ID number entered.");
+            if (Bas == null)
+                return default;
+
+            Node<T> current = Bas;
+            do
+            {
+                if (sorgu(current.TC!))
+                    return current.TC;
+
+                current = current.Sonraki!;
+            } while (current != Bas);
+
+            return default;
+        }
+    }
+
+
+    class Program
+    {
+        public class Eczacilik
+        {
+            public Hasta? HastaBilgileriniGetir(long TC, CiftBagliDaireselListe<Hasta> hastaListesi, CiftBagliDaireselListe<Doktor> doktorListesi, CiftBagliDaireselListe<Hastalik> hastalikListesi, CiftBagliDaireselListe<Ilac> ilacListesi)
+            {
+                return hastaListesi.KimlikleSorgula(h => h.TC == TC);
+            }
+        }
+        static void Main(string[] args)
+        {
+            // Çift bağlı dairesel listeler
+            CiftBagliDaireselListe<Hasta> hastaListesi = new CiftBagliDaireselListe<Hasta>();
+            CiftBagliDaireselListe<Ilac> ilacListesi = new CiftBagliDaireselListe<Ilac>();
+            CiftBagliDaireselListe<Doktor> doktorListesi = new CiftBagliDaireselListe<Doktor>();
+            CiftBagliDaireselListe<Hastalik> hastalikListesi = new CiftBagliDaireselListe<Hastalik>();
+
+           
+            hastaListesi.Ekle(new Hasta { TC = 46573806740, Ad = "Hiranur", Soyad = "Sazak" });
+            hastaListesi.Ekle(new Hasta { TC = 23746982347, Ad = "Nisa Nur", Soyad = "Özdal" });
+            hastaListesi.Ekle(new Hasta { TC = 89374938243, Ad = "Nisa Gül", Soyad = "Ünal" });
+            hastaListesi.Ekle(new Hasta { TC = 98723424674, Ad = "Berfin", Soyad = "Geleş" });
+
+            ilacListesi.Ekle(new Ilac { TC = 46573806740, Ad = "Theraflu Forte" });
+            ilacListesi.Ekle(new Ilac { TC = 46573806740, Ad = "Ketober %1.6 Gargara" });
+            ilacListesi.Ekle(new Ilac { TC = 46573806740, Ad = "Aferin Sinüs" });
+            ilacListesi.Ekle(new Ilac { TC = 23746982347, Ad = "Paraflex 20 Komprime" });
+            ilacListesi.Ekle(new Ilac { TC = 23746982347, Ad = "Sul jel %3 30 gr Jel" });
+            ilacListesi.Ekle(new Ilac { TC = 23746982347, Ad = "Edolar 500 mg 14 ftb" });
+            ilacListesi.Ekle(new Ilac { TC = 89374938243, Ad = "Laksafenol" });
+            ilacListesi.Ekle(new Ilac { TC = 89374938243, Ad = "Axeparin" });
+            ilacListesi.Ekle(new Ilac { TC = 89374938243, Ad = "Cynacal" });
+            ilacListesi.Ekle(new Ilac { TC = 98723424674, Ad = "BlefariTTO Göz Jeli 20 ml" });
+            ilacListesi.Ekle(new Ilac { TC = 98723424674, Ad = "LOTEBRA %0.5 + %0.3 göz damlası" });
+            ilacListesi.Ekle(new Ilac { TC = 98723424674, Ad = "TERRAMYCIN 5 mg/ 10.000 IU göz merhemi" });
+
+            doktorListesi.Ekle(new Doktor{ TC = 46573806740, Ad = "Dr. Ömer Kaplan", Brans = "Kulak, Burun, Boğaz" });
+            doktorListesi.Ekle(new Doktor { TC = 23746982347, Ad = "Dr. Ali Nazmican Güröz ", Brans = "Ortopedi" });
+            doktorListesi.Ekle(new Doktor { TC = 89374938243, Ad = "Dr. Bekir Borazan", Brans = "Dahiliye" });
+            doktorListesi.Ekle(new Doktor { TC = 98723424674, Ad = "Dr. Pınar İnan", Brans = "Göz Hastalıkları" });
+
+            hastalikListesi.Ekle(new Hastalik { TC = 46573806740, Ad = "Nezle" });
+            hastalikListesi.Ekle(new Hastalik { TC = 46573806740, Ad = "Farenjit" });
+            hastalikListesi.Ekle(new Hastalik { TC = 46573806740, Ad = "Sinüzit" });
+            hastalikListesi.Ekle(new Hastalik { TC = 23746982347, Ad = "Menisküs Yırtığı" });
+            hastalikListesi.Ekle(new Hastalik { TC = 89374938243, Ad = "Gastroenteroloji" });
+            hastalikListesi.Ekle(new Hastalik { TC = 89374938243, Ad = "Hematoloji" });
+            hastalikListesi.Ekle(new Hastalik { TC = 89374938243, Ad = "Nefroloji" });
+            hastalikListesi.Ekle(new Hastalik { TC = 98723424674, Ad = "Göz Enfeksiyonu" });
+            Eczacilik eczacilik = new Eczacilik();
+
+            Console.WriteLine("\n...Kimlikle Sorgulama...");
+
+            Console.Write("Lütfen TC kimlik numarasını giriniz: ");
+            if (long.TryParse(Console.ReadLine(), out long TC))
+            {
+                Hasta? hasta = eczacilik.HastaBilgileriniGetir(TC,hastaListesi,doktorListesi, hastalikListesi, ilacListesi);
+
+                if (hasta != null)
+                {
+                    Console.WriteLine($"Hasta Bilgileri:\nAd: {hasta.Ad} {hasta.Soyad}\n"+
+                                      $"Doktor: {hasta.GittigiDoktor}\n"+
+                                      $"Hastalık: {hasta.Hastaligi}\n"+
+                                      $"Alması Gereken İlaçlar: {hasta.AlmasıGerekenIlaclar}");
+                  
+                }
+                else
+                {
+                    Console.WriteLine("Hasta bulunamadı.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Geçersiz TC kimlik numarası girdiniz.");
+            }
+            Console.ReadKey();
         }
 
-        Console.ReadKey();
     }
 }
