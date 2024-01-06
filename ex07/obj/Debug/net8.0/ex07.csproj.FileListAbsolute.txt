@@ -1,0 +1,14 @@
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\bin\Debug\net8.0\ex07.exe
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\bin\Debug\net8.0\ex07.deps.json
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\bin\Debug\net8.0\ex07.runtimeconfig.json
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\bin\Debug\net8.0\ex07.dll
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\bin\Debug\net8.0\ex07.pdb
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\obj\Debug\net8.0\ex07.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\obj\Debug\net8.0\ex07.AssemblyInfoInputs.cache
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\obj\Debug\net8.0\ex07.AssemblyInfo.cs
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\obj\Debug\net8.0\ex07.csproj.CoreCompileInputs.cache
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\obj\Debug\net8.0\ex07.dll
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\obj\Debug\net8.0\refint\ex07.dll
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\obj\Debug\net8.0\ex07.pdb
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\obj\Debug\net8.0\ex07.genruntimeconfig.cache
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex07\obj\Debug\net8.0\ref\ex07.dll
