@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 
-// Enum for student grades
 public enum Grade
 {
     A,
@@ -10,18 +9,19 @@ public enum Grade
     F
 }
 
-// Custom exception class for invalid grades
-public class InvalidGradeException : Exception
+[AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
+sealed class StudentInfoAttribute : Attribute
 {
-    public InvalidGradeException(string message) : base(message)
+    public string InfoName { get; }
+
+    public StudentInfoAttribute(string infoName)
     {
+        InfoName = infoName;
     }
 }
 
-// Student structure with attributes
 public struct Student
 {
-    // Properties with attributes
     [StudentInfo("Adı")]
     public string Name { get; set; }
 
@@ -34,7 +34,6 @@ public struct Student
     [StudentInfo("Not")]
     public Grade Grade { get; set; }
 
-    // Method to print student information
     public void PrintStudentInfo()
     {
         Console.WriteLine($"Adı: {Name}");
@@ -44,59 +43,40 @@ public struct Student
     }
 }
 
-// Attribute class for student information
-[AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
-sealed class StudentInfoAttribute : Attribute
-{
-    public string InfoName { get; }
-
-    public StudentInfoAttribute(string infoName)
-    {
-        InfoName = infoName;
-    }
-}
-
 class Program
 {
     static void Main()
     {
-        try
+        Student student = new Student();
+
+        Console.Write("Adınız: ");
+        student.Name = Console.ReadLine();
+
+        Console.Write("Soyadınız: ");
+        student.Surname = Console.ReadLine();
+
+        Console.Write("Doğum Yılınız: ");
+        if (int.TryParse(Console.ReadLine(), out int birthYear))
         {
-            // Create a student
-            Student student = new Student
-            {
-                Name = "John",
-                Surname = "Doe",
-                BirthYear = 2000,
-                Grade = Grade.A
-            };
-
-            // Print student information
-            Console.WriteLine("Öğrenci Bilgileri:");
-            student.PrintStudentInfo();
-
-            // Demonstrate exception handling
-            try
-            {
-                // Attempt to set an invalid grade
-                student.Grade = (Grade)6;
-            }
-            catch (InvalidGradeException ex)
-            {
-                Console.WriteLine($"Hata: {ex.Message}");
-            }
-
-            // Demonstrate reflection
-            Console.WriteLine("\nSınıfın Özellikleri ve Attribute'ları:");
-            ReflectStudentClassProperties(student);
+            student.BirthYear = birthYear;
         }
-        catch (Exception ex)
+        else
         {
-            Console.WriteLine($"Ana Hata: {ex.Message}");
+            Console.WriteLine("Geçersiz bir doğum yılı girdiniz.");
+            return;
         }
+
+        // Rastgele bir not atama
+        var random = new Random();
+        student.Grade = (Grade)random.Next(0, Enum.GetValues(typeof(Grade)).Length);
+
+        Console.WriteLine("\nÖğrenci Bilgileri:");
+        student.PrintStudentInfo();
+
+        Console.WriteLine("\nSınıfın Özellikleri ve Attribute'ları:");
+        ReflectStudentClassProperties(student);
     }
 
-    // Method to reflect on class properties and attributes
     static void ReflectStudentClassProperties(Student student)
     {
         Type type = student.GetType();
@@ -105,7 +85,6 @@ class Program
         {
             Console.WriteLine($"Özellik Adı: {property.Name}");
 
-            // Get custom attributes
             var attributes = property.GetCustomAttributes(typeof(StudentInfoAttribute), false);
             foreach (StudentInfoAttribute attribute in attributes)
             {
