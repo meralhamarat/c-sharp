@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 class Program
 {
@@ -18,13 +18,18 @@ class Program
 
     static void Bolme(int x, int y)
     {
-        if (y != 0)
+        try
         {
+            if (y == 0)
+            {
+                throw new ArgumentException("Bölme işlemi için payda sıfır olamaz.");
+            }
+
             Console.WriteLine($"{x} / {y} = {x / y}");
         }
-        else
+        catch (Exception ex)
         {
-            Console.WriteLine("Bölme işlemi tanımsız (y = 0).");
+            Console.WriteLine($"Hata: {ex.Message}");
         }
     }
 
@@ -32,9 +37,9 @@ class Program
     {
         // Delege tanımlama ve metotları ekleme
         MyDelegate delege = null;
-        delege += new MyDelegate(Toplama);
-        delege += new MyDelegate(Carpma);
-        delege += new MyDelegate(Bolme);
+        delege += Toplama;
+        delege += Carpma;
+        delege += Bolme;
 
         int X, Y;
         X = 18;
