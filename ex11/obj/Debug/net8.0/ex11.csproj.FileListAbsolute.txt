@@ -1,0 +1,14 @@
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\bin\Debug\net8.0\ex11.exe
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\bin\Debug\net8.0\ex11.deps.json
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\bin\Debug\net8.0\ex11.runtimeconfig.json
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\bin\Debug\net8.0\ex11.dll
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\bin\Debug\net8.0\ex11.pdb
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\obj\Debug\net8.0\ex11.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\obj\Debug\net8.0\ex11.AssemblyInfoInputs.cache
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\obj\Debug\net8.0\ex11.AssemblyInfo.cs
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\obj\Debug\net8.0\ex11.csproj.CoreCompileInputs.cache
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\obj\Debug\net8.0\ex11.dll
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\obj\Debug\net8.0\refint\ex11.dll
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\obj\Debug\net8.0\ex11.pdb
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\obj\Debug\net8.0\ex11.genruntimeconfig.cache
+C:\Users\Meral PC\OneDrive\Masaüstü\maral\Development\C#\.vscode\ex11\obj\Debug\net8.0\ref\ex11.dll
