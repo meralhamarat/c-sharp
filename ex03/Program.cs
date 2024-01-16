@@ -1,124 +1,99 @@
-﻿/* ************************************************************************** */
-/*                                                                            */
-/*                                                                            */
-/*   Adam_Asmaca.cs                                                           */
-/*                                                                            */
-/*   By: meralhamarat24@gmail.com                                             */
-/*                                                                            */
-/* ************************************************************************** */
-
 using System;
 
 class Program
 {
     static void Main()
     {
-        Console.WriteLine("Adam Asmaca Oyunu'na Hoşgeldiniz!");
-        Console.WriteLine("  +---+");
-        Console.WriteLine("  |   |");
-        Console.WriteLine("      |");
-        Console.WriteLine("      |");
-        Console.WriteLine("      |");
-        Console.WriteLine("      |");
-        Console.WriteLine("=========");
+        Console.WriteLine("DC Evreni Karakter Testine Hoş Geldiniz!");
 
-        string[] kelimeler = { "greyfurt", "avokado", "mandalina", "bilgisayar", "program" };
-        Random random = new Random();
-        string secilenKelime = kelimeler[random.Next(0, kelimeler.Length)];
+        Console.Write("1. Hangi süper gücü tercih edersiniz? (a) Uçma (b) Zamanı durdurma (c) Şekil değiştirme: ");
+        char soru1 = Char.ToLower(Console.ReadKey().KeyChar);
+        Console.WriteLine();
 
-        char[] dogruTahminler = new char[secilenKelime.Length];
-        for (int i = 0; i < dogruTahminler.Length; i++)
+        Console.Write("2. Hangi hayvana dönüşmek isterdiniz? (a) Kurt (b) Kartal (c) Goril: ");
+        char soru2 = Char.ToLower(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+
+        Console.Write("4. Hangi saç modelini tercih edersin? (a) Düz ve uzun (b) Kıvırcık ve kısa (c) Dalgalı ve orta: ");
+        char soru4 = Char.ToLower(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        Console.Write("5. En sevdiğin ders hangisidir? (a) Fen (b) Sanat (c) Spor: ");
+        char soru5 = Char.ToLower(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        Console.Write("6. En çok korktuğun şey nedir? (a) Yalnız kalmak (b) Yükseklik (c) Böcekler ");
+        char soru6 = Char.ToLower(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        Console.Write("7. Akşam yemeği için neyi tercih edersin? (a) Pizza (b) Sushi (c) Steak: ");
+        char soru7 = Char.ToLower(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        string batman = "Batman";
+        string superman = "Superman";
+        string wonderWoman = "Wonder Woman";
+        string flash = "The Flash";
+        string aquaman = "Aquaman";
+
+        int batmanPuani = 0;
+        int supermanPuani = 0;
+        int wonderWomanPuani = 0;
+        int flashPuani = 0;
+        int aquamanPuani = 0;
+
+        // Sorulara göre puanları hesapla
+        if (soru1 == 'a') supermanPuani++;
+        else if (soru1 == 'b') wonderWomanPuani++;
+        else if (soru1 == 'c') flashPuani++;
+
+        if (soru2 == 'a') batmanPuani++;
+        else if (soru2 == 'b') supermanPuani++;
+        else if (soru2 == 'c') aquamanPuani++;
+
+        // 3. soru silindi.
+
+        if (soru4 == 'a') supermanPuani++;
+        else if (soru4 == 'b') flashPuani++;
+        else if (soru4 == 'c') batmanPuani++;
+
+        if (soru5 == 'a') batmanPuani++;
+        else if (soru5 == 'b') wonderWomanPuani++;
+        else if (soru5 == 'c') aquamanPuani++;
+
+        if (soru6 == 'a') wonderWomanPuani++;
+        else if (soru6 == 'b') supermanPuani++;
+        else if (soru6 == 'c') flashPuani++;
+
+        if (soru7 == 'a') batmanPuani++;
+        else if (soru7 == 'b') aquamanPuani++;
+        else if (soru7 == 'c') supermanPuani++;
+
+        // En yüksek puana sahip karakteri bul
+        if (batmanPuani > supermanPuani && batmanPuani > wonderWomanPuani && batmanPuani > flashPuani && batmanPuani > aquamanPuani)
         {
-            dogruTahminler[i] = '_';
+            Console.WriteLine($"\nSiz, {batman}'a daha çok benziyorsunuz!");
         }
-
-        int kalanCan = 6;
-
-        while (kalanCan > 0)
+        else if (supermanPuani > batmanPuani && supermanPuani > wonderWomanPuani && supermanPuani > flashPuani && supermanPuani > aquamanPuani)
         {
-            Console.Clear();
-            DrawHangman(kalanCan);
-            Console.WriteLine($"Kelime: {string.Join(" ", dogruTahminler)}");
-            Console.WriteLine($"Kalan Can: {kalanCan}");
-
-            Console.Write("Bir harf girin: ");
-            char tahmin = Char.ToLower(Console.ReadLine()[0]); // Küçük harfe çevirme
-
-            if (secilenKelime.Contains(tahmin))
-            {
-                for (int i = 0; i < secilenKelime.Length; i++)
-                {
-                    if (secilenKelime[i] == tahmin)
-                    {
-                        dogruTahminler[i] = tahmin;
-                    }
-                }
-
-                if (!dogruTahminler.Contains('_'))
-                {
-                    Console.Clear();
-                    DrawHangman(kalanCan);
-                    Console.WriteLine("Tebrikler, kelimeyi doğru tahmin ettiniz!");
-                    break;
-                }
-            }
-            else
-            {
-                Console.Clear();
-                DrawHangman(--kalanCan);
-                Console.WriteLine("Hatalı tahmin, bir can kaybettiniz.");
-            }
-
-            if (Array.IndexOf(dogruTahminler, '_') == -1)
-            {
-                Console.Clear();
-                DrawHangman(kalanCan);
-                Console.WriteLine("Tebrikler, kelimeyi doğru tahmin ettiniz!");
-                break;
-            }
+            Console.WriteLine($"\nSiz, {superman}'a daha çok benziyorsunuz!");
         }
-
-        if (kalanCan == 0)
+        else if (wonderWomanPuani > batmanPuani && wonderWomanPuani > supermanPuani && wonderWomanPuani > flashPuani && wonderWomanPuani > aquamanPuani)
         {
-            Console.WriteLine($"Üzgünüm, canlarınız tükendi. Doğru kelime: {secilenKelime}");
+            Console.WriteLine($"\nSiz, {wonderWoman}'a daha çok benziyorsunuz!");
         }
-
-        Console.ReadLine();
+        else if (flashPuani > batmanPuani && flashPuani > supermanPuani && flashPuani > wonderWomanPuani && flashPuani > aquamanPuani)
+        {
+            Console.WriteLine($"\nSiz, {flash}'a daha çok benziyorsunuz!");
+        }
+        else
+        {
+            Console.WriteLine($"\nSiz, {aquaman}'a daha çok benziyorsunuz!");
+        }
     }
+}
 
-    static void DrawHangman(int wrongGuessCount)
-    {
-        Console.WriteLine("  +---+");
-        Console.WriteLine("  |   |");
-
-        switch (wrongGuessCount)
-        {
-            case 1:
-                Console.WriteLine("  O   |");
-                break;
-            case 2:
-                Console.WriteLine("  O   |");
-                Console.WriteLine("  |   |");
-                break;
-            case 3:
-                Console.WriteLine("  O   |");
-                Console.WriteLine(" /|   |");
-                break;
-            case 4:
-                Console.WriteLine("  O   |");
-                Console.WriteLine(" /|\\  |");
-                break;
-            case 5:
-                Console.WriteLine("  O   |");
-                Console.WriteLine(" /|\\  |");
-                Console.WriteLine(" /    |");
-                break;
-            case 6:
-                Console.WriteLine("  O   |");
-                Console.WriteLine(" /|\\  |");
-                Console.WriteLine(" / \\  |");
-                break;
-        }
 
         Console.WriteLine("=========");
     }
