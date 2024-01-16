@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("DC Evreni Karakter Testine Hoş Geldiniz!");
+        Console.WriteLine("----DC Evreni Karakter Testine Hoş Geldiniz!-----");
 
         Console.Write("1. Hangi süper gücü tercih edersiniz? (a) Uçma (b) Zamanı durdurma (c) Şekil değiştirme: ");
         char soru1 = Char.ToLower(Console.ReadKey().KeyChar);
@@ -13,7 +13,6 @@ class Program
         Console.Write("2. Hangi hayvana dönüşmek isterdiniz? (a) Kurt (b) Kartal (c) Goril: ");
         char soru2 = Char.ToLower(Console.ReadKey().KeyChar);
         Console.WriteLine();
-
 
         Console.Write("4. Hangi saç modelini tercih edersin? (a) Düz ve uzun (b) Kıvırcık ve kısa (c) Dalgalı ve orta: ");
         char soru4 = Char.ToLower(Console.ReadKey().KeyChar);
@@ -42,8 +41,7 @@ class Program
         int wonderWomanPuani = 0;
         int flashPuani = 0;
         int aquamanPuani = 0;
-
-        // Sorulara göre puanları hesapla
+        
         if (soru1 == 'a') supermanPuani++;
         else if (soru1 == 'b') wonderWomanPuani++;
         else if (soru1 == 'c') flashPuani++;
@@ -51,8 +49,6 @@ class Program
         if (soru2 == 'a') batmanPuani++;
         else if (soru2 == 'b') supermanPuani++;
         else if (soru2 == 'c') aquamanPuani++;
-
-        // 3. soru silindi.
 
         if (soru4 == 'a') supermanPuani++;
         else if (soru4 == 'b') flashPuani++;
@@ -70,7 +66,6 @@ class Program
         else if (soru7 == 'b') aquamanPuani++;
         else if (soru7 == 'c') supermanPuani++;
 
-        // En yüksek puana sahip karakteri bul
         if (batmanPuani > supermanPuani && batmanPuani > wonderWomanPuani && batmanPuani > flashPuani && batmanPuani > aquamanPuani)
         {
             Console.WriteLine($"\nSiz, {batman}'a daha çok benziyorsunuz!");
