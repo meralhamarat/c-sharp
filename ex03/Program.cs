@@ -88,8 +88,3 @@ class Program
         }
     }
 }
-
-
-        Console.WriteLine("=========");
-    }
-}
