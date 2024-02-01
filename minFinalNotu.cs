@@ -25,7 +25,8 @@ class Program
 
         Console.Write("Lütfen final notunuzun yüzdeliğini giriniz: ");
         int finalpercent = Convert.ToInt32(Console.ReadLine());
-
+        
+        Console.ForegroundColor = ConsoleColor.DarkRed;
         int final = (pass * 100 - (midterm * midpercent)) / finalpercent;        
         Console.WriteLine($"Finalden {final} almanız gerekiyor.");
         Console.ResetColor();
