@@ -1,24 +1,3 @@
-﻿// using System;
-// class Program
-// {
-//     public static void Main(string[] args)
-//     {
-//         Console.WriteLine("Finalden kaç alsam geçerim uygulamasına hoşgeldiniz!");
-//         Console.ReadLine("lütfen vize notunuzu giriniz:");
-//         int midterm = Convert.ToInt32(Console.ReadLine());
-//         Console.ReadLine("lütfen vize notunuzun yüzdeliğini giriniz:");
-//         int midpercent = Convert.ToInt32(Console.ReadLine());
-//         Console.ReadLine("lütfen geçme notunuzu giriniz:");
-//         int pass = Convert.ToInt32(Console.ReadLine());
-//         Console.ReadLine("lütfen final notunuzun yüzdeliğini giriniz:");
-//         int finalpercent = Convert.ToInt32(Console.ReadLine());
-    
-//         int final = (pass - (midterm * midpercent)) / finalpercent;
-//         Console.WriteLine("finalden {0} almanız gerekmektedir.", final);
-//         Console.ReadLine();
-//     }
-
-// }
 using System;
 
 class Program
