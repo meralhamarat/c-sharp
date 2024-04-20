@@ -22,7 +22,7 @@ class Program
         Console.WriteLine("      |");
         Console.WriteLine("=========");
 
-        string[] kelimeler = { "greyfurt", "avokado", "mandalina", "bilgisayar", "program" };
+        string[] kelimeler = { "greyfurt", "avokado", "mandolin", "bilgisayar", "program" };
         Random random = new Random();
         string secilenKelime = kelimeler[random.Next(0, kelimeler.Length)];
 
